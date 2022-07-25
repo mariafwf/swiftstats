@@ -1,0 +1,22 @@
+body {
+    font-family:'Jenriv', 'Times New Roman', Times, serif;
+    background: radial-gradient(circle, rgba(195,153,119, 1) 0%, rgba(221,196,119, 1) 100%);
+    color: black;
+}
+
+p {
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family:'Jenriv', 'Times New Roman', Times, serif;
+}
+
+h3 {
+    font-family:'Jenriv', 'Times New Roman', Times, serif;
+}
+
+th {
+    cursor: pointer;
+}
