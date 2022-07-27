@@ -44,6 +44,7 @@ table {
 
 th, td {
     border-bottom: 1px solid #7b767674;
+    line-height: 12px;
 }
 
 th {
@@ -58,7 +59,7 @@ p {
 
 h1 {
     font-family: 'Gotham Medium';
-    font-size: 64px;
+    font-size: 58px;
     text-shadow: 1px 1px 10px rgba(23, 10, 6, 0.254);
     font-weight: 100;
     color: rgba(0, 0, 0, 0.721);
@@ -67,7 +68,7 @@ h1 {
 h2 {
     font-family: 'Gotham Medium';
     color: rgb(69, 66, 66);
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 20px;
 }
 
