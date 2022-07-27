@@ -29,7 +29,9 @@ window.addEventListener('load', (event) => {
         const sv = document.createElement('td');
         sv.innerHTML = fearless[index]['sv'];
         song.append(sv);
-        song.innerHTML += '<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-stats">Stats</button>'
+        const stats = document.createElement('td');
+        stats.innerHTML += '<button class="uk-button uk-button-default" type="button" uk-toggle="target: #modal-stats">Stats</button>'
+        song.append(stats);
         song.innerHTML += '<div id="modal-stats" uk-modal><div class="uk-modal-dialog uk-modal-body"><h2 class="uk-modal-title">Headline</h2><p>Placeholder</p><p class="uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button></p></div></div>'
         const modal = document.getElementById('modal-stats');
     }
@@ -38,13 +40,13 @@ window.addEventListener('load', (event) => {
 const fearlessButton = document.getElementById('fearless-btn');
 
 fearlessButton.addEventListener('click', function onClick(event) {
-    document.body.style.background = 'radial-gradient(circle, rgba(195,153,119, 1) 0%, rgba(221,196,119, 1) 100%)';
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #eccc8c 100%)';
 });
 
 const redButton = document.getElementById('red-btn');
 
 redButton.addEventListener('click', function onClick(event) {
-    document.body.style.background = 'radial-gradient(circle, rgba(166, 126, 101, 1) 0%, rgba(139, 25, 18, 1) 100%)';
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #d4ac9c 100%)';
 });
 
 function sortTable(n) {

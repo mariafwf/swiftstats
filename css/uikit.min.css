@@ -615,33 +615,38 @@ a.uk-link-reset {
   border-top: 1px solid #e5e5e5;
 }
 .uk-table {
-  border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
-  margin-bottom: 20px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  background-color: rgba(249, 245, 245, 0.342);
+  box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
 }
 * + .uk-table {
   margin-top: 20px;
 }
 .uk-table th {
-  padding: 16px 12px;
+  padding: 25px 25px;
   text-align: center;
   vertical-align: bottom;
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 550;
   color: #080808;
-  text-transform: uppercase;
 }
 .uk-table td {
-  padding: 16px 12px;
+  padding: 5px 5px;
+  font-size: 18px;
   vertical-align: center;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
+/*
 .uk-table td > :last-child {
   margin-bottom: 0;
 }
+*/
 .uk-table tfoot {
   font-size: 0.875rem;
 }
@@ -654,16 +659,19 @@ a.uk-link-reset {
 .uk-table-middle td {
   vertical-align: middle !important;
 }
+
+/*
 .uk-table-divider > :first-child > tr:not(:first-child),
 .uk-table-divider > :not(:first-child) > tr,
 .uk-table-divider > tr:not(:first-child) {
-  border-top: 1px solid #17161638;
-}
+  border-top: 1px solid #7b767674;
+}*/
+
 .uk-table-striped tbody tr:nth-of-type(odd),
 .uk-table-striped > tr:nth-of-type(odd) {
   background: #f8f8f8;
-  border-top: 1px solid #17161638;
-  border-bottom: 1px solid #17161638;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 .uk-table-hover tbody tr:hover,
 .uk-table-hover > tr:hover {
@@ -745,7 +753,7 @@ a.uk-link-reset {
 }
 .uk-table-striped tbody tr:nth-of-type(2n):last-child,
 .uk-table-striped > tr:nth-of-type(2n):last-child {
-  border-bottom: 1px solid #e5e5e5;
+  /*border-bottom: 1px solid #e5e5e5;*/
 }
 .uk-icon {
   margin: 0;

@@ -1,7 +1,54 @@
 body {
-    font-family:'Jenriv', 'Times New Roman', Times, serif;
-    background: radial-gradient(circle, rgba(195,153,119, 1) 0%, rgba(221,196,119, 1) 100%);
-    color: black;
+    font-family:'Gotham Light';
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #eccc8c 100%);
+    color: #000;
+    font-weight: 100;
+}
+
+#fearless-btn {
+    padding: 0.9rem 1.7rem;
+    border-radius: 10px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 1rem;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background: #644324;
+    box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
+    color: #eccc8c;
+    text-shadow: -2px -2px -2px #583c2c;
+    font-family: 'Germany Sans';
+}
+
+#red-btn {
+    padding: 0.9rem 1.7rem;
+    border-radius: 10px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 1rem;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background: #d4ac9c;
+    box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
+    color: #94242c;
+    text-shadow: -2px -2px -2px #d4b1a7;
+    font-family: 'Heading Pro Trial';
+}
+
+table {
+    border-radius: 10px;
+    box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
+}
+
+th, td {
+    border-bottom: 1px solid #7b767674;
+}
+
+th {
+    padding: 10px;
+    font-weight: bold;
 }
 
 p {
@@ -10,13 +57,25 @@ p {
 }
 
 h1 {
-    font-family:'Jenriv', 'Times New Roman', Times, serif;
+    font-family: 'Gotham Medium';
+    font-size: 64px;
+    text-shadow: 1px 1px 10px rgba(23, 10, 6, 0.254);
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.721);
 }
 
-h3 {
-    font-family:'Jenriv', 'Times New Roman', Times, serif;
+h2 {
+    font-family: 'Gotham Medium';
+    color: rgb(69, 66, 66);
+    font-size: 24px;
+    margin-top: 20px;
 }
 
 th {
     cursor: pointer;
+}
+
+#btn-div {
+    margin-top: 25px;
+    margin-bottom: 40px;
 }
