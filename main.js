@@ -18,22 +18,50 @@ const tableBody = document.getElementById('table-body');
 
 window.addEventListener('load', (event) => {
     for (let index = 0; index < fearless.length; index++) {
-        let song = document.createElement('tr');
-        tableBody.append(song);
-        let name = document.createElement('td');
-        name.innerHTML = fearless[index]['name'];
-        song.append(name);
+
+      let songRow = document.createElement('tr');
+      tableBody.append(songRow);
+      let name = document.createElement('td');
+      name.innerHTML = fearless[index]['name'];
+      songRow.append(name);
+
+      if (fearless[index]['tv'] > fearless[index]['sv']) {
+        let tvGreen = document.createElement('div');
+        tvGreen.classList.add('alert');
+        tvGreen.classList.add('uk-alert-success');
+        tvGreen.innerHTML = fearless[index]['tv'];
         const tv = document.createElement('td');
-        tv.innerHTML = fearless[index]['tv'];
-        song.append(tv);
+        tv.append(tvGreen);
+        songRow.append(tv);
+        let svRed = document.createElement('div');
+        svRed.classList.add('alert');
+        svRed.classList.add('uk-alert-danger');
+        svRed.innerHTML = fearless[index]['sv'];
         const sv = document.createElement('td');
-        sv.innerHTML = fearless[index]['sv'];
-        song.append(sv);
-        const stats = document.createElement('td');
-        stats.innerHTML += '<button class="uk-button uk-button-default" type="button" uk-toggle="target: #modal-stats">Stats</button>'
-        song.append(stats);
-        song.innerHTML += '<div id="modal-stats" uk-modal><div class="uk-modal-dialog uk-modal-body"><h2 class="uk-modal-title">Headline</h2><p>Placeholder</p><p class="uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button></p></div></div>'
-        const modal = document.getElementById('modal-stats');
+        sv.append(svRed);
+        songRow.append(sv);
+      }
+      else {
+        let tvRed = document.createElement('div');
+        tvRed.classList.add('alert');
+        tvRed.classList.add('uk-alert-danger');
+        tvRed.innerHTML = fearless[index]['tv'];
+        const tv = document.createElement('td');
+        tv.append(tvRed);
+        songRow.append(tv);
+        let svGreen = document.createElement('div');
+        svGreen.classList.add('alert');
+        svGreen.classList.add('uk-alert-success');
+        svGreen.innerHTML = fearless[index]['sv'];
+        const sv = document.createElement('td');
+        sv.append(svGreen);
+        songRow.append(sv);
+      }
+      const stats = document.createElement('td');
+      stats.innerHTML += '<button class="uk-button uk-button-default" type="button" uk-toggle="target: #modal-stats">Stats</button>'
+      songRow.append(stats);
+      songRow.innerHTML += '<div id="modal-stats" uk-modal><div class="uk-modal-dialog uk-modal-body"><h2 class="uk-modal-title">Headline</h2><p>Placeholder</p><p class="uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button></p></div></div>'
+      const modal = document.getElementById('modal-stats');
     }
 });
 
