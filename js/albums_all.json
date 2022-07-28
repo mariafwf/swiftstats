@@ -2,7 +2,10 @@
   "taylorswift": [
     { "name": "Tim McGraw", "popularity": 62 },
     { "name": "Picture To Burn", "popularity": 66 },
-    { "name": "Teardrops On My Guitar - Radio Single Remix", "popularity": 65 },
+    {
+      "name": "Teardrops On My Guitar - Radio Single Remix",
+      "popularity": 65
+    },
     { "name": "A Place in this World", "popularity": 52 },
     { "name": "Cold As You", "popularity": 52 },
     { "name": "The Outside", "popularity": 49 },

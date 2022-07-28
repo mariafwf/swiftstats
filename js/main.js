@@ -1,3 +1,6 @@
+import albumsJSON from './albums_all.json' assert {type: 'json'};
+
+
 const fearless = [
     {name: 'Change', tv: 0.100, sv: 0.750},
     {name: 'Fearless', tv: 0.150, sv: 0.700},
@@ -14,35 +17,96 @@ const fearless = [
     {name: 'The Best Day', tv: 0.750, sv: 0.400},
 ]
 
-fetch("backend/albums.json")
-.then(response => {
-   return response.json();
-})
-.then(jsondata => console.log(jsondata));
+function createAlbum(albumJS, index) {
+  for (const element of albumsJSON.albumsJSON[index]) {
+    const newSong = {};
+    newSong.name = element.name;
+    newSong.popularity = element.popularity;
+    albumJS.push(newSong);
+  }
+}
+
+const taylorswift = [];
+
+createAlbum(taylorswift, 0);
+
+console.log(taylorswift);
+
+function createTable(album) {
+
+  for (const song of album) {
+
+    let songRow = document.createElement('tr');
+    tableBody.append(songRow);
+    let name = document.createElement('td');
+    name.innerHTML = element['name'];
+    songRow.append(name);
+
+    if (element['tv'] > element['sv']) {
+      let tvGreen = document.createElement('div');
+      tvGreen.classList.add('alert');
+      tvGreen.classList.add('uk-alert-success');
+      tvGreen.innerHTML = element['tv'];
+      const tv = document.createElement('td');
+      tv.append(tvGreen);
+      songRow.append(tv);
+      let svRed = document.createElement('div');
+      svRed.classList.add('alert');
+      svRed.classList.add('uk-alert-danger');
+      svRed.innerHTML = element['sv'];
+      const sv = document.createElement('td');
+      sv.append(svRed);
+      songRow.append(sv);
+    }
+    else {
+      let tvRed = document.createElement('div');
+      tvRed.classList.add('alert');
+      tvRed.classList.add('uk-alert-danger');
+      tvRed.innerHTML = element['tv'];
+      const tv = document.createElement('td');
+      tv.append(tvRed);
+      songRow.append(tv);
+      let svGreen = document.createElement('div');
+      svGreen.classList.add('alert');
+      svGreen.classList.add('uk-alert-success');
+      svGreen.innerHTML = element['sv'];
+      const sv = document.createElement('td');
+      sv.append(svGreen);
+      songRow.append(sv);
+    }
+    const stats = document.createElement('td');
+    stats.innerHTML += '<button class="uk-button uk-button-default" type="button" uk-toggle="target: #modal-stats">Stats</button>'
+    songRow.append(stats);
+    songRow.innerHTML += '<div id="modal-stats" uk-modal><div class="uk-modal-dialog uk-modal-body"><h2 class="uk-modal-title">Headline</h2><p>Placeholder</p><p class="uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button></p></div></div>'
+    const modal = document.getElementById('modal-stats');
+  }
+}
+
 
 const tableBody = document.getElementById('table-body');
 
-window.addEventListener('load', (event) => {
-    for (let index = 0; index < fearless.length; index++) {
+window.addEventListener('load', (e) => {
+
+    for (const element of fearless) {
 
       let songRow = document.createElement('tr');
       tableBody.append(songRow);
       let name = document.createElement('td');
-      name.innerHTML = fearless[index]['name'];
+      name.innerHTML = element['name'];
       songRow.append(name);
 
-      if (fearless[index]['tv'] > fearless[index]['sv']) {
+      if (element['tv'] > element['sv']) {
         let tvGreen = document.createElement('div');
         tvGreen.classList.add('alert');
         tvGreen.classList.add('uk-alert-success');
-        tvGreen.innerHTML = fearless[index]['tv'];
+        tvGreen.innerHTML = element['tv'];
         const tv = document.createElement('td');
         tv.append(tvGreen);
         songRow.append(tv);
         let svRed = document.createElement('div');
         svRed.classList.add('alert');
         svRed.classList.add('uk-alert-danger');
-        svRed.innerHTML = fearless[index]['sv'];
+        svRed.innerHTML = element['sv'];
         const sv = document.createElement('td');
         sv.append(svRed);
         songRow.append(sv);
@@ -51,14 +115,14 @@ window.addEventListener('load', (event) => {
         let tvRed = document.createElement('div');
         tvRed.classList.add('alert');
         tvRed.classList.add('uk-alert-danger');
-        tvRed.innerHTML = fearless[index]['tv'];
+        tvRed.innerHTML = element['tv'];
         const tv = document.createElement('td');
         tv.append(tvRed);
         songRow.append(tv);
         let svGreen = document.createElement('div');
         svGreen.classList.add('alert');
         svGreen.classList.add('uk-alert-success');
-        svGreen.innerHTML = fearless[index]['sv'];
+        svGreen.innerHTML = element['sv'];
         const sv = document.createElement('td');
         sv.append(svGreen);
         songRow.append(sv);
@@ -100,10 +164,10 @@ evermoreButton.addEventListener('click', function onClick(event) {
 
 
 function sortTable(n) {
-  var rows, index, first, second, should, count = 0;
-  var table = document.getElementById("full-table");
-  var switching = true;
-  var dir = "asc";
+  let rows, index, first, second, should, count = 0;
+  let table = document.getElementById("full-table");
+  let switching = true;
+  let dir = "asc";
   while (switching) {
     switching = false;
     rows = table.rows;
