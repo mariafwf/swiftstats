@@ -1,11 +1,11 @@
 body {
-    font-family:'Gotham Light';
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #eccc8c 100%);
+    font-family:'Zabal DEMO';
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #acdeecae 100%);
     color: #000;
     font-weight: 100;
 }
 
-#fearless-btn {
+.album-btn {
     padding: 0.9rem 1.7rem;
     border-radius: 10px;
     font-weight: 400;
@@ -14,27 +14,45 @@ body {
     font-size: 18px;
     border: none;
     cursor: pointer;
-    background: #644324;
     box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
+}
+
+#fearless-btn {
+    background: #644324;
     color: #eccc8c;
     text-shadow: -2px -2px -2px #583c2c;
     font-family: 'Germany Sans';
 }
 
 #red-btn {
-    padding: 0.9rem 1.7rem;
-    border-radius: 10px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    margin: 1rem;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
     background: #d4ac9c;
-    box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
     color: #94242c;
     text-shadow: -2px -2px -2px #d4b1a7;
     font-family: 'Heading Pro Trial';
+}
+
+#lover-btn {
+    background: #5c8bc4;
+    color: #8a5066;
+    text-shadow: -2px -2px -2px #f2aed4;
+    font-family: 'Bonita';
+    font-size: 20px;
+}
+
+#folklore-btn {
+    background: #bababa;
+    color: #2e2e2e;
+    text-shadow: -2px -2px -2px #7f7f7f;
+    font-family: 'IM FELL DW Pica';
+    font-style: italic;
+}
+
+#evermore-btn {
+    background: #334941;
+    color: #d2936c;
+    text-shadow: -2px -2px -2px #3c2d23;
+    font-family: 'IM FELL DW Pica';
+    font-style: italic;
 }
 
 table {
@@ -62,26 +80,40 @@ p {
     justify-content: center;
 }
 
+.intro-div {
+    margin-top: 30px; 
+    margin-left: 160px;
+    margin-bottom: 5px;
+    padding: 50px;
+}
+
+.btn-div {
+    margin-top: 30px; 
+    margin-left: 20px;
+    margin-right: 190px;
+    margin-bottom: 30px;
+    padding-top: 50px;
+}
+
 h1 {
-    font-family: 'Gotham Medium';
+    font-family: 'BALLAD';
     font-size: 58px;
     text-shadow: 1px 1px 10px rgba(23, 10, 6, 0.254);
     font-weight: 100;
     color: rgba(0, 0, 0, 0.721);
+    letter-spacing: 3px;
 }
 
 h2 {
-    font-family: 'Gotham Medium';
+    font-family: 'Zabal DEMO';
     color: rgb(69, 66, 66);
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 50px;
+    font-weight: 300;
+    padding-right: 55px;
+    padding-left: 55px;
 }
 
 th {
     cursor: pointer;
-}
-
-#btn-div {
-    margin-top: 25px;
-    margin-bottom: 40px;
 }

@@ -1934,16 +1934,18 @@ select.uk-form-width-xsmall {
   color: #1e87f0;
 }
 .uk-alert-success {
-  background: #edfbf6;
-  color: #32d296;
+  background: #e0faf1;
+  color: #28aa7a;
+  border-radius: 5px;
 }
 .uk-alert-warning {
   background: #fff6ee;
   color: #faa05a;
 }
 .uk-alert-danger {
-  background: #fef4f6;
+  background: #f6e3e7;
   color: #f0506e;
+  border-radius: 5px;
 }
 .uk-alert h1,
 .uk-alert h2,

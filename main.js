@@ -1,17 +1,17 @@
 const fearless = [
-    {name: 'Change', tv: 0.100, sv: 0.1234},
-    {name: 'Fearless', tv: 0.150, sv: 0.1234},
-    {name: 'Fifteen', tv: 0.200, sv: 0.1234},
-    {name: 'Love Story', tv: 0.250, sv: 0.1234},
-    {name: 'Hey Stephen', tv: 0.300, sv: 0.1234},
-    {name: 'White Horse', tv: 0.350, sv: 0.1234},
-    {name: 'You Belong With Me', tv: 0.450, sv: 0.1234},
-    {name: 'Breathe', tv: 0.500, sv: 0.1234},
-    {name: 'Tell Me Why', tv: 0.550, sv: 0.1234},
-    {name: 'You\'re Not Sorry', tv: 0.600, sv: 0.1234},
-    {name: 'The Way I Loved You', tv: 0.650, sv: 0.1234},
-    {name: 'Forever & Always', tv: 0.700, sv: 0.1234},
-    {name: 'The Best Day', tv: 0.750, sv: 0.1234},
+    {name: 'Change', tv: 0.100, sv: 0.750},
+    {name: 'Fearless', tv: 0.150, sv: 0.700},
+    {name: 'Fifteen', tv: 0.200, sv: 0.100},
+    {name: 'Love Story', tv: 0.250, sv: 0.150},
+    {name: 'Hey Stephen', tv: 0.300, sv: 0.650},
+    {name: 'White Horse', tv: 0.350, sv: 0.200},
+    {name: 'You Belong With Me', tv: 0.450, sv: 0.250},
+    {name: 'Breathe', tv: 0.500, sv: 0.600},
+    {name: 'Tell Me Why', tv: 0.550, sv: 0.500},
+    {name: 'You\'re Not Sorry', tv: 0.600, sv: 0.550},
+    {name: 'The Way I Loved You', tv: 0.650, sv: 0.300},
+    {name: 'Forever & Always', tv: 0.700, sv: 0.350},
+    {name: 'The Best Day', tv: 0.750, sv: 0.400},
 ]
 
 const tableBody = document.getElementById('table-body');
@@ -66,16 +66,32 @@ window.addEventListener('load', (event) => {
 });
 
 const fearlessButton = document.getElementById('fearless-btn');
-
 fearlessButton.addEventListener('click', function onClick(event) {
     document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #eccc8c 100%)';
 });
 
 const redButton = document.getElementById('red-btn');
-
 redButton.addEventListener('click', function onClick(event) {
     document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #d4ac9c 100%)';
 });
+
+const loverButton = document.getElementById('lover-btn');
+loverButton.addEventListener('click', function onClick(event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #5c8bc4 100%)';
+});
+
+const folkloreButton = document.getElementById('folklore-btn');
+folkloreButton.addEventListener('click', function onClick(event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #7f7f7f 100%)';
+});
+
+const evermoreButton = document.getElementById('evermore-btn');
+evermoreButton.addEventListener('click', function onClick(event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #334941 100%)';
+});
+
+
+
 
 function sortTable(n) {
   var rows, index, first, second, should, count = 0;
