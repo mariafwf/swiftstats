@@ -14,6 +14,12 @@ const fearless = [
     {name: 'The Best Day', tv: 0.750, sv: 0.400},
 ]
 
+fetch("backend/albums.json")
+.then(response => {
+   return response.json();
+})
+.then(jsondata => console.log(jsondata));
+
 const tableBody = document.getElementById('table-body');
 
 window.addEventListener('load', (event) => {
