@@ -112,8 +112,6 @@ def create_indiviual_albums_collections():
     collection = db[key]
     collection.insert_many(createListOfTracks(ids))
 
-#create_indiviual_albums_collections()
-
 # create comparison collections
 
 def createListOfTracks_comparison(ids_sv,ids_tv):
@@ -150,8 +148,6 @@ def create_sv_tv_albums_collections():
     
     collection.insert_many(createListOfTracks_comparison(sv_ids,tv_ids))
 
-#create_sv_tv_albums_collections()
-
 # READ 
 
 def individual_album_popularity_indices(name):
@@ -167,15 +163,16 @@ def individual_album_popularity_indices(name):
   
   return name_popularityindex_list
 
-#print(individual_album_popularity_indices("lover"))
 
+albums_to_json = {}
+for key in albums_playlist_ids:
+  albums_to_json[key] = individual_album_popularity_indices(key)
 
-
+with open("albums_all.json", "w") as outfile:
+    json.dump(albums_to_json, outfile)
 
 # UPDATE 
 
-with open("albums.json", "w") as outfile:
-    json.dump(individual_album_popularity_indices("lover"), outfile)
 
 
 # DELETE

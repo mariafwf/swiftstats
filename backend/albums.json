@@ -1,1 +1,26 @@
-[{"name": "I Forgot That You Existed", "popularity": 72}, {"name": "Cruel Summer", "popularity": 85}, {"name": "Lover", "popularity": 84}, {"name": "The Man", "popularity": 79}, {"name": "The Archer", "popularity": 70}, {"name": "I Think He Knows", "popularity": 72}, {"name": "Miss Americana & The Heartbreak Prince", "popularity": 70}, {"name": "Paper Rings", "popularity": 82}, {"name": "Cornelia Street", "popularity": 73}, {"name": "Death By A Thousand Cuts", "popularity": 71}, {"name": "London Boy", "popularity": 74}, {"name": "Soon You\u2019ll Get Better (feat. The Chicks)", "popularity": 65}, {"name": "False God", "popularity": 72}, {"name": "You Need To Calm Down", "popularity": 77}, {"name": "Afterglow", "popularity": 75}, {"name": "ME! (feat. Brendon Urie of Panic! At The Disco)", "popularity": 77}, {"name": "It\u2019s Nice To Have A Friend", "popularity": 65}, {"name": "Daylight", "popularity": 72}]
+[
+  { "name": "I Forgot That You Existed", "popularity": 72 },
+  { "name": "Cruel Summer", "popularity": 85 },
+  { "name": "Lover", "popularity": 84 },
+  { "name": "The Man", "popularity": 79 },
+  { "name": "The Archer", "popularity": 70 },
+  { "name": "I Think He Knows", "popularity": 72 },
+  { "name": "Miss Americana & The Heartbreak Prince", "popularity": 70 },
+  { "name": "Paper Rings", "popularity": 82 },
+  { "name": "Cornelia Street", "popularity": 73 },
+  { "name": "Death By A Thousand Cuts", "popularity": 71 },
+  { "name": "London Boy", "popularity": 74 },
+  {
+    "name": "Soon You\u2019ll Get Better (feat. The Chicks)",
+    "popularity": 65
+  },
+  { "name": "False God", "popularity": 72 },
+  { "name": "You Need To Calm Down", "popularity": 77 },
+  { "name": "Afterglow", "popularity": 75 },
+  {
+    "name": "ME! (feat. Brendon Urie of Panic! At The Disco)",
+    "popularity": 77
+  },
+  { "name": "It\u2019s Nice To Have A Friend", "popularity": 65 },
+  { "name": "Daylight", "popularity": 72 }
+]
