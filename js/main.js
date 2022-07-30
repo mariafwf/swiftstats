@@ -192,12 +192,26 @@ createTable(fearless);
 window.addEventListener('load', (_event) => {
 });
 
+const tsButton = document.getElementById('ts-btn');
+tsButton.addEventListener('click', function onClick(_event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #00a3ad 100%)';
+    deleteTable();
+    createTable(taylorswift);
+});
+
 
 const fearlessButton = document.getElementById('fearless-btn');
 fearlessButton.addEventListener('click', function onClick(_event) {
     document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #eccc8c 100%)';
     deleteTable();
     createTable(fearless);
+});
+
+const speaknowButton = document.getElementById('speaknow-btn');
+speaknowButton.addEventListener('click', function onClick(_event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #52316b 100%)';
+    deleteTable();
+    createTable(speaknow);
 });
 
 const redButton = document.getElementById('red-btn');
@@ -207,9 +221,23 @@ redButton.addEventListener('click', function onClick(_event) {
     createTable(red);
 });
 
+const a1989Button = document.getElementById('a1989-btn');
+a1989Button.addEventListener('click', function onClick(_event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #4d5266 100%)';
+    deleteTable();
+    createTable(a1989);
+});
+
+const repButton = document.getElementById('rep-btn');
+repButton.addEventListener('click', function onClick(_event) {
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgb(226, 224, 224) 100%)';
+    deleteTable();
+    createTable(reputation);
+});
+
 const loverButton = document.getElementById('lover-btn');
 loverButton.addEventListener('click', function onClick(_event) {
-    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #5c8bc4 100%)';
+    document.body.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #ebbad1 100%)';
     deleteTable();
     createTable(lover);
 });
