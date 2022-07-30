@@ -1,31 +1,27 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import time 
-import itertools
 import json
+import Constants
 
 from pymongo import MongoClient
 
-CLIENT_ID = '935df3b5c24445c9b8b8d762ce974999'
-CLIENT_SECRET = 'ce2c610c16a54315819f81158237e2ce'
-USER_ID = 'hzbi6l653qv6b8us2s4hkyqyi'
-
 albums_playlist_ids = {
-  "taylorswift" : '0Pu2SkEPbSbWtj89uibq6a?si=3ba3144337934869',
-  "fearless" : '320hNW54JnfqCIN9QORtPy?si=b9d0429ca8714023',
-  "speaknow" : '08pK3XWpOtEzf8Rz51Pdvh?si=be741f3d6ff74f8b',
-  "red" : '44f7kuKKAEZDOviuzZDeyq?si=b3bee18692d74fcd',
-  "1989" : '6YApTIDJsn4x92gLKnpnvG?si=b17c9ebec72a4b15',
-  "reputation" : '5swiLchK3f2P57aFJyBEdM?si=82143c3b6ac94523',
-  "lover" : '7A3pPd0M8kRnCgdrfFJVJj?si=9ef1923c8e394ee2',
-  "folklore" : '4QCQUlgBabBgIHeOpqFt5d?si=eb6aefc8fba341ce',
-  "evermore" : '0gXPwkwK5RXvl49x3AKkST?si=1b5ac008bef54412'
+  "taylorswift" : Constants.TAYLORSWIFT_ID,
+  "fearless" : Constants.FEARLESS_ID,
+  "speaknow" : Constants.SPEAKNOW_ID,
+  "red" : Constants.RED_ID,
+  "1989" : Constants._1989_ID,
+  "reputation" : Constants.REPUTATION_ID,
+  "lover" : Constants.LOVER_ID,
+  "folklore" : Constants.FOLKLORE_ID,
+  "evermore" : Constants.EVERMORE_ID
 }
 
 tv_sv_comparison_ids = {
   "fearless" : {
-    "fearless_sv" : '67WkS5Ihn7wadLmSxmL4py?si=6b6d80abdf724839',
-    "fearless_tv" : '0gAW6DQ2inUM7pxv0VPu03?si=9e81a701f1ad4a35'
+    "fearless_sv" : Constants.FEARLESS_SV_COMPARE_ID,
+    "fearless_tv" : Constants.FEARLESS_TV_COMPARE_ID
   }
 }
 
@@ -35,8 +31,8 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # Connecting with MongoDB Atlas cluster
 try:
-    conn = MongoClient("mongodb+srv://adviti:advititaylorswift@cluster0.w7mm71t.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true&tlsAllowInvalidCertificates=true")
-    print("Connected successfully!!!")
+    conn = MongoClient(Constants.MONGODB_CLIENTURI)
+    print("Connected successfully")
 except:  
     print("Could not connect to MongoDB")
 
@@ -59,39 +55,22 @@ def getTrackFeatures(id):
   meta = sp.track(id)
   features = sp.audio_features(id)
 
-  # meta
-  name = meta['name']
-  album = meta['album']['name']
-  release_date = meta['album']['release_date']
-  length = meta['duration_ms']
-  popularity = meta['popularity']
-
-  # features
-  acousticness = features[0]['acousticness']
-  danceability = features[0]['danceability']
-  energy = features[0]['energy']
-  instrumentalness = features[0]['instrumentalness']
-  liveness = features[0]['liveness']
-  loudness = features[0]['loudness']
-  speechiness = features[0]['speechiness']
-  tempo = features[0]['tempo']
-  time_signature = features[0]['time_signature']
-
   track = {
-    "name": name,
-    "album": album,
-    "release_date" : release_date,
-    "length" : length,
-    "popularity" : popularity,
-    "acousticness" : acousticness,
-    "danceability" : danceability,
-    "energy" : energy,
-    "instrumentalness" : instrumentalness,
-    "liveness" : liveness,
-    "loudness" : loudness,
-    "speechiness" : speechiness,
-    "tempo" : tempo,
-    "time_signature" : time_signature
+    "name":  meta['name'],
+    "id" : id,
+    "album": meta['album']['name'],
+    "release_date" : meta['album']['release_date'],
+    "length" : meta['duration_ms'],
+    "popularity" : meta['popularity'],
+    "acousticness" : features[0]['acousticness'],
+    "danceability" : features[0]['danceability'],
+    "energy" : features[0]['energy'],
+    "instrumentalness" : features[0]['instrumentalness'],
+    "liveness" : features[0]['liveness'],
+    "loudness" : features[0]['loudness'],
+    "speechiness" : features[0]['speechiness'],
+    "tempo" : features[0]['tempo'],
+    "time_signature" : features[0]['time_signature']
     }
 
   return track
@@ -106,11 +85,14 @@ def createListOfTracks(ids):
 
 # create album collections
 
-def create_indiviual_albums_collections():
+def create_indiviual_album(album, playlist_id):
+  ids = getTrackIDs(Constants.USER_ID, playlist_id)
+  collection = db[album]
+  collection.insert_many(createListOfTracks(ids))
+
+def create_albums_collections():
   for key in albums_playlist_ids:
-    ids = getTrackIDs(USER_ID, albums_playlist_ids[key])
-    collection = db[key]
-    collection.insert_many(createListOfTracks(ids))
+    create_indiviual_album(key, albums_playlist_ids[key])
 
 # create comparison collections
 
@@ -120,8 +102,8 @@ def createListOfTracks_comparison(ids_sv,ids_tv):
     time.sleep(.5)
     track = {
       "name" : sp.track(id_sv)["name"],
-      "sv_pi" : sp.track(id_sv)["popularity"],
-      "tv_pi" : sp.track(id_tv)["popularity"]
+      "sv_id" : id_sv,
+      "tv_id" : id_tv
     }
     tracks.append(track)
   return tracks
