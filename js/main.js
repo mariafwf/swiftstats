@@ -19,7 +19,11 @@ Object.entries(albumsJSON).forEach((album) => {
 
 const tableDiv = document.getElementById('table-div');
 
+
+
 function createTable(album) {
+  document.getElementById("intro-div").style.marginTop = "30px";
+  document.getElementById("btn-div").style.marginTop = "30px";
   // sort album in descending order
   album.sort((x, y) => (x.popularity < y.popularity) ? 1 :
     (x.popularity === y.popularity) ? ((x.name > y.name) ? 1 : -1) : -1)
@@ -123,12 +127,10 @@ function createComparison(album) {
 */
 
 function deleteTable() {
-  let table = document.getElementById('new-table');
-  table.remove();
+  if (document.contains(document.getElementById('new-table'))) {
+    document.getElementById('new-table').remove();
+} 
 }
-
-createTable(fearless);
-
 
 window.addEventListener('load', (_event) => {
 });
