@@ -3,7 +3,7 @@ import albumsJSON from './albums_all.json' assert {type: 'json'};
 let taylorswift = []; let fearless = []; let speaknow = []; let red = []; let a1989 = []; 
 let reputation = []; let lover = []; let folklore = []; let evermore = [];
 let titles = [taylorswift, fearless, speaknow, red, a1989, reputation, lover, folklore, evermore];
-let index = 0;
+let i = 0;
 
 // helper function to import albums from JSON
 Object.entries(albumsJSON).forEach((album) => {
@@ -12,9 +12,9 @@ Object.entries(albumsJSON).forEach((album) => {
     const newSong = {};
     newSong.name = song.name;
     newSong.popularity = song.popularity;
-    titles[index].push(newSong);
+    titles[i].push(newSong);
   }
-  index++;
+  i++;
 });
 
 const tableDiv = document.getElementById('table-div');
