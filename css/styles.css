@@ -106,6 +106,10 @@ th {
     font-weight: bold;
 }
 
+tbody > tr:last-child > td {
+    border-bottom: 0;
+}
+
 .alert {
     position: relative;
     padding: 15px;
