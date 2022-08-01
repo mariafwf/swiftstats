@@ -20,6 +20,8 @@ Object.entries(albumsJSON).forEach((album) => {
 const tableDiv = document.getElementById('table-div');
 
 function createTable(album) {
+  // sort album in descending order
+  album.sort((x, y) => (x.popularity < y.popularity) ? 1 : (x.popularity === y.popularity) ? ((x.name > y.name) ? 1 : -1) : -1 )
   // new table with UIKit classes
   let table = document.createElement('table');
   table.classList.add('uk-table');
@@ -33,38 +35,49 @@ function createTable(album) {
   tHead.append(header);
   // new table body
   let body = document.createElement('tbody');
+  // blank th for position
+  let positionHead = document.createElement('th');
+  positionHead.innerHTML = '';
+  header.append(positionHead);
   // th for name
   let nameHead = document.createElement('th');
   nameHead.innerHTML = 'Name';
+  nameHead.classList.add('uk-text-left');
   header.append(nameHead);
   // th for popularity
   let popularityHead = document.createElement('th');
-  popularityHead.innerHTML = 'Popularity Index';
+  popularityHead.innerHTML = 'Popularity';
   // popularityHead.onclick = sortTable(1);
   header.append(popularityHead);
   // blank th for stats
   let statsHead = document.createElement('th');
   statsHead.innerHTML = '';
   header.append(statsHead);
+  let position = 1;
   // loop through each song in the album array
   for (const song of album) {
     // row for individual the song
     let row = document.createElement('tr');
     body.append(row);
     // column with song name
+    let pos = document.createElement('td');
+    pos.innerHTML = position;
+    position++;
+    pos.classList.add('uk-text-left');
+    row.append(pos);
+    // column with song name
     let name = document.createElement('td');
     name.innerHTML = song['name'];
+    name.classList.add('uk-text-left');
     row.append(name);
     // column with popularity
     let popularity = document.createElement('td');
     popularity.innerHTML = song['popularity'];
     row.append(popularity);
-    // column with 'show stats' button
-    let statsData = document.createElement('td');
-    let statsButton = document.createElement('button');
-    statsButton.innerHTML += 'Show Stats'
-    statsData.append(statsButton);
-    row.append(statsData);
+    // column with 'plus' button for stats
+    let stats = document.createElement('td');
+    stats.innerHTML += '<span uk-icon="icon: plus; ratio: 0.8"></span>'
+    row.append(stats);
     // add table to html code
     table.append(body);
     tableDiv.append(table);
