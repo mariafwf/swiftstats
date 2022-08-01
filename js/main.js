@@ -2,93 +2,20 @@ import albumsJSON from './albums_all.json' assert {type: 'json'};
 
 let taylorswift = []; let fearless = []; let speaknow = []; let red = []; let a1989 = []; 
 let reputation = []; let lover = []; let folklore = []; let evermore = [];
+let titles = [taylorswift, fearless, speaknow, red, a1989, reputation, lover, folklore, evermore];
+let index = 0;
 
-// helper functions to import albums from JSON
-function createTS() {
-  for (const element of albumsJSON.taylorswift) {
+// helper function to import albums from JSON
+Object.entries(albumsJSON).forEach((album) => {
+  const [_name, songs] = album;
+  for (const song of songs) {
     const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    taylorswift.push(newSong);
+    newSong.name = song.name;
+    newSong.popularity = song.popularity;
+    titles[index].push(newSong);
   }
-}
-function createFearless() {
-  for (const element of albumsJSON.fearless) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    fearless.push(newSong);
-  }
-}
-function createSN() {
-  for (const element of albumsJSON.speaknow) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    speaknow.push(newSong);
-  }
-}
-function createRed() {
-  for (const element of albumsJSON.red) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    red.push(newSong);
-  }
-}
-function create1989() {
-  for (const element of albumsJSON.album1989) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    a1989.push(newSong);
-  }
-}
-function createRep() {
-  for (const element of albumsJSON.reputation) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    reputation.push(newSong);
-  }
-}
-function createLover() {
-  for (const element of albumsJSON.lover) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    lover.push(newSong);
-  }
-}
-function createFolklore() {
-  for (const element of albumsJSON.folklore) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    folklore.push(newSong);
-  }
-}
-function createEvermore() {
-  for (const element of albumsJSON.evermore) {
-    const newSong = {};
-    newSong.name = element.name;
-    newSong.popularity = element.popularity;
-    evermore.push(newSong);
-  }
-}
-function createAlbums() {
-  createTS();
-  createFearless();
-  createSN();
-  createRed();
-  create1989();
-  createRep();
-  createLover();
-  createFolklore();
-  createEvermore();
-}
-
-createAlbums();
+  index++;
+});
 
 const tableDiv = document.getElementById('table-div');
 
