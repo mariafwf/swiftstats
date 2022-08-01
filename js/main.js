@@ -21,7 +21,8 @@ const tableDiv = document.getElementById('table-div');
 
 function createTable(album) {
   // sort album in descending order
-  album.sort((x, y) => (x.popularity < y.popularity) ? 1 : (x.popularity === y.popularity) ? ((x.name > y.name) ? 1 : -1) : -1 )
+  album.sort((x, y) => (x.popularity < y.popularity) ? 1 :
+    (x.popularity === y.popularity) ? ((x.name > y.name) ? 1 : -1) : -1)
   // new table with UIKit classes
   let table = document.createElement('table');
   table.classList.add('uk-table');

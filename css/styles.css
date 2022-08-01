@@ -1,6 +1,6 @@
 body {
     font-family:'Zabal DEMO';
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #acdeecae 100%);
+    background-color: rgb(232, 231, 231);
     color: #000;
     font-weight: 100;
 }
@@ -12,6 +12,25 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 50px;
+}
+
+h1 {
+    font-family: 'BALLAD';
+    font-size: 58px;
+    text-shadow: 1px 1px 10px rgba(23, 10, 6, 0.254);
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.767);
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-family: 'Zabal DEMO';
+    color: rgb(69, 66, 66);
+    font-size: 18px;
+    margin-top: 50px;
+    font-weight: 300;
+    padding-right: 100px;
+    padding-left: 100px;
 }
 
 .btn-div {
@@ -117,7 +136,7 @@ tbody > tr:last-child > td {
 .alert {
     position: relative;
     padding: 15px;
-  }
+}
 
 p {
     align-items: center;
@@ -125,30 +144,18 @@ p {
 }
 
 span {
-    color: rgba(88, 86, 86, 0.464);
     cursor: pointer;
 }
 
-
-h1 {
-    font-family: 'BALLAD';
-    font-size: 58px;
-    text-shadow: 1px 1px 10px rgba(23, 10, 6, 0.254);
-    font-weight: 100;
-    color: rgba(0, 0, 0, 0.767);
-    letter-spacing: 1px;
+footer {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 16px;
 }
 
-h2 {
-    font-family: 'Zabal DEMO';
-    color: rgb(69, 66, 66);
-    font-size: 18px;
-    margin-top: 50px;
-    font-weight: 300;
-    padding-right: 100px;
-    padding-left: 100px;
-}
-
-th {
-    cursor: pointer;
+a:visited { 
+    text-decoration: none; 
+    color: #000; 
 }

@@ -15,8 +15,8 @@ body {
 }
 .uk-link,
 a {
-  color: #1e87f0;
-  text-decoration: none;
+  /*color: #1e87f0;*/
+  text-decoration: underline;
   cursor: pointer;
 }
 .uk-link-toggle:hover .uk-link,
@@ -616,7 +616,7 @@ a.uk-link-reset {
 }
 .uk-table {
   border-spacing: 0;
-  width: 65%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
@@ -815,8 +815,8 @@ button.uk-icon:not(:disabled) {
   width: 36px;
   height: 36px;
   border-radius: 500px;
-  background: #f8f8f8;
-  color: #999;
+  background: #8b8a8a;
+  color: rgb(248, 246, 246);
   vertical-align: middle;
   display: inline-flex;
   justify-content: center;
