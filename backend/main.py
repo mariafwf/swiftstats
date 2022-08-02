@@ -3,8 +3,10 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import time 
 import json
 import Constants
+import bson.json_util as json_util
 
 from pymongo import MongoClient
+
 
 albums_playlist_ids = {
   "taylorswift" : Constants.TAYLORSWIFT_ID,
@@ -26,7 +28,7 @@ tv_sv_comparison_ids = {
 }
 
 # Certifying credentials for Spotify API 
-client_credentials_manager = SpotifyClientCredentials(CLIENT_ID, CLIENT_SECRET)
+client_credentials_manager = SpotifyClientCredentials(Constants.CLIENT_ID, Constants.CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # Connecting with MongoDB Atlas cluster
@@ -38,8 +40,6 @@ except:
 
 db = conn.albums
 db_comparison = conn.comparison
-
-# CREATE 
 
 # helper functions to get spotify statistics
 
@@ -75,6 +75,16 @@ def getTrackFeatures(id):
 
   return track
 
+
+# 
+# CREATE 
+#
+
+
+# INDIVIDUAL ALBUMS 
+
+# create list of tracks - all statistics
+
 def createListOfTracks(ids):
   tracks = []
   for i in range(len(ids)):
@@ -91,72 +101,109 @@ def create_indiviual_album(album, playlist_id):
   collection.insert_many(createListOfTracks(ids))
 
 def create_albums_collections():
-  for key in albums_playlist_ids:
-    create_indiviual_album(key, albums_playlist_ids[key])
+  for album in albums_playlist_ids:
+    create_indiviual_album(album, albums_playlist_ids[key])
 
-# create comparison collections
+# COMPARISON ALBUMS 
 
-def createListOfTracks_comparison(ids_sv,ids_tv):
+# create list of tracks - comparison 
+
+def createListOfTracks_comparison(sv_ids,tv_ids):
   tracks = []
-  for (id_sv,id_tv) in zip(ids_sv,ids_tv):
+  for (sv_id,tv_id) in zip(sv_ids,tv_ids):
     time.sleep(.5)
     track = {
-      "name" : sp.track(id_sv)["name"],
-      "sv_id" : id_sv,
-      "tv_id" : id_tv
+      "name" : sp.track(sv_id)["name"],
+      "sv_id" : sv_id,
+      "tv_id" : tv_id
     }
     tracks.append(track)
   return tracks
 
-def create_sv_tv_albums_collections():
+# create comparison collections
 
-  for key in tv_sv_comparison_ids:
-    # fearless collection
-    collection = db_comparison[key]
+def create_indiviual_comparison(album, playlist_id_sv, playlist_id_tv):
+  sv_ids = getTrackIDs(Constants.USER_ID, playlist_id_sv)
+  tv_ids = getTrackIDs(Constants.USER_ID, playlist_id_tv)
+  collection = db_comparison[album]
+  collection.insert_many(createListOfTracks_comparison(sv_ids, tv_ids))
+
+def create_comparison_collections():
+
+  for album in tv_sv_comparison_ids:
 
     # fearless_sv
     # fearless_tv
-    values = tv_sv_comparison_ids[key]
+    values = tv_sv_comparison_ids[album]
     
     # fearless_sv
-    sv_playlist_id = values[key+"_sv"]
-    # IDs of 1. Fearless, 2. Fifteen ...
-    sv_ids = getTrackIDs(USER_ID, sv_playlist_id)
-    
+    playlist_id_sv = values[album+"_sv"]
+   
     # fearless_tv
-    tv_playlist_id = values[key+"_tv"]
-    # IDs of 1. Fearless (Taylor's Version), 2. Fifteen (Taylor's Version)...
-    tv_ids = getTrackIDs(USER_ID, tv_playlist_id)
+    playlist_id_tv = values[album+"_tv"]
     
-    collection.insert_many(createListOfTracks_comparison(sv_ids,tv_ids))
+    create_indiviual_comparison(album, playlist_id_sv, playlist_id_tv)
 
+
+
+# 
 # READ 
+#
 
-def individual_album_popularity_indices(name):
-  collection = db[name]
+
+# INDIVIDUAL ALBUMS 
+
+def read_individual_album(album):
+
+  collection = db[album]
   cursor = collection.find({})
-  name_popularityindex_list = []
-  for document in cursor:
-    name_popularityindex = {
-      "name" : document["name"],
-      "popularity" : document["popularity"]
-    }
-    name_popularityindex_list.append(name_popularityindex)
+
+  return list(cursor)
+
+def read_albums_collection():
+  albums_to_json = {}
+
+  for album in albums_playlist_ids:
+    albums_to_json[album] = read_individual_album(album)
   
-  return name_popularityindex_list
+  return albums_to_json
 
+# reading all album statistics into json
 
-albums_to_json = {}
-for key in albums_playlist_ids:
-  albums_to_json[key] = individual_album_popularity_indices(key)
+def read_album_all_statistics_into_json():
+  albums_to_json = read_albums_collection()
+  with open("album_all_statistics_2.json", "w") as outfile:
+   outfile.write(json_util.dumps(albums_to_json))
 
-with open("albums_all.json", "w") as outfile:
-    json.dump(albums_to_json, outfile)
+# COMPARISON ALBUMS 
+
+def read_comparison_album(album):
+  collection = db_comparison[album]
+  cursor = collection.find({})
+
+  return list(cursor)
+
+def read_comparison_collection():
+  comparison_to_json = {}
+
+  for album in tv_sv_comparison_ids:
+    comparison_to_json[album] = read_comparison_album(album)
+  
+  return comparison_to_json
+
+# reading all comparisons into json
+
+def read_comparison_into_json():
+  comparisons_to_json = read_comparison_collection()
+  with open("comparison.json", "w") as outfile:
+   outfile.write(json_util.dumps(comparisons_to_json))
 
 # UPDATE 
+
+# TODO: update popularity indices every 24 hours
 
 
 
 # DELETE
 
-
+# TODO : function to delete collection, song if needed
