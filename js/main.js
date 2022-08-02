@@ -1,4 +1,4 @@
-import albumsJSON from "./albums_all.json" assert { type: "json" };
+import albumsJSON from "/backend/album-stats.json" assert { type: "json" };
 
 let taylorswift = [];
 let fearless = [];
