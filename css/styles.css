@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  font-family: "Zabal DEMO";
-  background-color: rgb(242, 240, 240);
+  font-family: "DM Sans";
+  background: #F2F2F2;
   color: #000;
   font-weight: 100;
   margin: 0;
@@ -58,7 +58,7 @@ h2 {
   font-size: 18px;
   border: none;
   cursor: pointer;
-  box-shadow: 0px 5px 30px 0px rgba(23, 10, 6, 0.619);
+  box-shadow: 0 5px 30px 0px rgba(40, 39, 38, 0.426);
   text-shadow: -2px 1px 3px rgba(61, 57, 56, 0.491);
 }
 
@@ -119,9 +119,18 @@ h2 {
   font-style: italic;
 }
 
+#stats-div {
+  padding-right: 100px;
+}
+
+#table-div {
+  padding-left: 100px;
+}
+
 table {
   border-radius: 10px;
-  box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
+  background: #FFFFFF;
+  box-shadow: 0 5px 30px 0px rgba(40, 39, 38, 0.246);
 }
 
 th,
@@ -158,6 +167,7 @@ span {
 }
 
 footer {
+  margin-top: 30px;
   padding-top: 20px;
   padding-bottom: 40px;
   align-items: center;

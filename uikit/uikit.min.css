@@ -616,12 +616,10 @@ a.uk-link-reset {
 }
 .uk-table {
   border-spacing: 0;
-  width: 50%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  background-color: rgba(249, 245, 245, 0.342);
-  box-shadow: 0 5px 30px 0px rgba(23, 10, 6, 0.619);
 }
 * + .uk-table {
   margin-top: 20px;
@@ -1396,7 +1394,7 @@ select.uk-form-width-xsmall {
   display: block;
   width: 100%;
   border: 0;
-  background-color: #f8f8f8;
+  background-color: #767272;
   margin-bottom: 20px;
   height: 15px;
   border-radius: 500px;

@@ -27,8 +27,22 @@ Object.entries(albumsJSON).forEach((album) => {
   const [_name, songs] = album;
   for (const song of songs) {
     const newSong = {};
+    newSong._id = song._id;
     newSong.name = song.name;
+    newSong.id = song.id;
+    newSong.album = song.album;
+    newSong.release_date = song.release_date;
+    newSong.length = song.length;
     newSong.popularity = song.popularity;
+    newSong.acousticness = song.acousticness;
+    newSong.danceability = song.danceability;
+    newSong.energy = song.energy;
+    newSong.instrumentalness = song.instrumentalness;
+    newSong.liveness = song.liveness;
+    newSong.loudness = song.loudness;
+    newSong.speechiness = song.speechiness;
+    newSong.tempo = song.tempo;
+    newSong.time_signature = song.time_signature;
     titles[i].push(newSong);
   }
   i++;
@@ -139,6 +153,44 @@ function createComparison(album) {
     }
 }
 */
+
+
+
+const statsDiv = document.getElementById("stats-div");
+
+function createStats(song) {
+  // name and general stats
+  let nameDiv = document.createElement("div");
+  let lengthDiv = document.createElement("div");
+  let releaseDiv = document.createElement("div");
+  // audio features
+  let popularity = document.createElement("progress");
+  let acousticness = document.createElement("progress");
+  let danceability = document.createElement("progress");
+  let energy = document.createElement("progress");
+  let liveness = document.createElement("progress");
+  let loudness = document.createElement("progress");
+  let speechiness = document.createElement("progress");
+  let tempo = document.createElement("progress");
+  let audioFeatures = [popularity, acousticness, danceability, energy, liveness, loudness, speechiness, tempo];
+  let audioTitles = ["popularity", "acousticness", "danceability", "energy", "liveness", "loudness", "speechiness", "tempo"];
+  let maxVals = [100, 1, 1, 1, 1, 0, 1, 300];
+  let index = 0;
+
+  for (const feature of audioFeatures) {
+    let title = document.createElement("div");
+    title.innerHTML = audioTitles[index] + " " + song[audioTitles[index]];
+    feature.setAttribute("max", maxVals[index]);
+    feature.setAttribute("value", song[audioTitles[index]]);
+    feature.classList.add("uk-progress");
+    statsDiv.append(title);
+    statsDiv.append(feature);
+    index++;
+  }
+}
+
+createTable(fearless);
+createStats(fearless[3]);
 
 function deleteTable() {
   if (document.contains(document.getElementById("new-table"))) {
