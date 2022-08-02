@@ -7,12 +7,11 @@ import bson.json_util as json_util
 
 from pymongo import MongoClient
 
-
 albums_playlist_ids = {
   "taylorswift" : Constants.TAYLORSWIFT_ID,
-  "fearless" : Constants.FEARLESS_ID,
+  "fearless" : Constants.FEARLESS_TV_ID,
   "speaknow" : Constants.SPEAKNOW_ID,
-  "red" : Constants.RED_ID,
+  "red" : Constants.RED_TV_ID,
   "1989" : Constants._1989_ID,
   "reputation" : Constants.REPUTATION_ID,
   "lover" : Constants.LOVER_ID,
@@ -102,7 +101,7 @@ def create_indiviual_album(album, playlist_id):
 
 def create_albums_collections():
   for album in albums_playlist_ids:
-    create_indiviual_album(album, albums_playlist_ids[key])
+    create_indiviual_album(album, albums_playlist_ids[album])
 
 # COMPARISON ALBUMS 
 
@@ -145,11 +144,9 @@ def create_comparison_collections():
     create_indiviual_comparison(album, playlist_id_sv, playlist_id_tv)
 
 
-
 # 
 # READ 
 #
-
 
 # INDIVIDUAL ALBUMS 
 
@@ -168,12 +165,15 @@ def read_albums_collection():
   
   return albums_to_json
 
+
 # reading all album statistics into json
 
 def read_album_all_statistics_into_json():
   albums_to_json = read_albums_collection()
-  with open("album_all_statistics_2.json", "w") as outfile:
+  with open("album_all_statistics.json", "w") as outfile:
    outfile.write(json_util.dumps(albums_to_json))
+
+read_album_all_statistics_into_json()
 
 # COMPARISON ALBUMS 
 
