@@ -189,9 +189,6 @@ function createStats(song) {
   }
 }
 
-createTable(fearless);
-createStats(fearless[3]);
-
 function deleteTable() {
   if (document.contains(document.getElementById("new-table"))) {
     document.getElementById("new-table").remove();
@@ -203,6 +200,7 @@ tsButton.addEventListener("click", function onClick(_event) {
   document.body.style.background =
     "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #00a3ad 100%)";
   deleteTable();
+  console.log(taylorswift);
   createTable(taylorswift);
 });
 
