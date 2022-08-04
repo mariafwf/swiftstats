@@ -1,25 +1,10 @@
 import albumsJSON from "/backend/album-stats.json" assert { type: "json" };
 
-let taylorswift = [];
-let fearless = [];
-let speaknow = [];
-let red = [];
-let a1989 = [];
-let reputation = [];
-let lover = [];
-let folklore = [];
-let evermore = [];
-let titles = [
-  taylorswift,
-  fearless,
-  speaknow,
-  red,
-  a1989,
-  reputation,
-  lover,
-  folklore,
-  evermore,
-];
+let taylorswift = []; let fearless = []; let speaknow = []; let red = []; let a1989 = [];
+let reputation = []; let lover = []; let folklore = []; let evermore = [];
+let titles = [taylorswift, fearless, speaknow, red, a1989, reputation, lover, folklore, evermore];
+let titlesString = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe Package)", "Red (Taylor's Version)", 
+                    "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)"]
 let i = 0;
 
 // helper function to import albums from JSON
@@ -55,6 +40,20 @@ function createTable(album) {
   document.getElementById("btn-div").style.marginTop = "30px";
   // sort album in descending order
   album.sort((x, y) => x.popularity < y.popularity ? 1 : x.popularity === y.popularity ? x.name > y.name ? 1 : -1 : -1);
+  // album title
+  let title = document.createElement("div");
+  let index = titles.indexOf(album);
+  title.innerHTML = titlesString[index];
+  title.setAttribute("id", "new-title");
+  // show comparison
+  if (album == fearless || album == red) {
+    let comparison = document.createElement("button");
+    comparison.innerHTML = "Compare to original version";
+    comparison.classList.add("uk-button");
+    comparison.classList.add("uk-button-default");
+    title.append(comparison);
+  }
+  tableDiv.append(title);
   // new table with UIKit classes
   let table = document.createElement("table");
   table.classList.add("uk-table");
@@ -109,7 +108,7 @@ function createTable(album) {
     row.append(popularity);
     // column with 'plus' button for stats
     let stats = document.createElement("td");
-    stats.innerHTML += '<span uk-icon="icon: plus; ratio: 0.8"></span>';
+    stats.innerHTML += '<span uk-icon="icon: plus; ratio: 1"></span>';
     row.append(stats);
     // add table to html code
     table.append(body);
@@ -154,8 +153,6 @@ function createComparison(album) {
 }
 */
 
-
-
 const statsDiv = document.getElementById("stats-div");
 
 function createStats(song) {
@@ -189,81 +186,65 @@ function createStats(song) {
   }
 }
 
+
 function deleteTable() {
   if (document.contains(document.getElementById("new-table"))) {
     document.getElementById("new-table").remove();
+    document.getElementById("new-title").remove();
   }
 }
 
 const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #00a3ad 100%)";
   deleteTable();
-  console.log(taylorswift);
   createTable(taylorswift);
+  createStats(taylorswift[0]);
 });
 
 const fearlessButton = document.getElementById("fearless-btn");
 fearlessButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #eccc8c 100%)";
   deleteTable();
   createTable(fearless);
 });
 
 const speaknowButton = document.getElementById("speaknow-btn");
 speaknowButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #52316b 100%)";
   deleteTable();
   createTable(speaknow);
 });
 
 const redButton = document.getElementById("red-btn");
 redButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #d4ac9c 100%)";
   deleteTable();
   createTable(red);
 });
 
 const a1989Button = document.getElementById("a1989-btn");
 a1989Button.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #4d5266 100%)";
   deleteTable();
   createTable(a1989);
 });
 
 const repButton = document.getElementById("rep-btn");
 repButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgb(226, 224, 224) 100%)";
   deleteTable();
   createTable(reputation);
 });
 
 const loverButton = document.getElementById("lover-btn");
 loverButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #ebbad1 100%)";
   deleteTable();
   createTable(lover);
 });
 
 const folkloreButton = document.getElementById("folklore-btn");
 folkloreButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #7f7f7f 100%)";
   deleteTable();
   createTable(folklore);
 });
 
 const evermoreButton = document.getElementById("evermore-btn");
 evermoreButton.addEventListener("click", function onClick(_event) {
-  document.body.style.background =
-    "radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, #334941 100%)";
   deleteTable();
   createTable(evermore);
 });
