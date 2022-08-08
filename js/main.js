@@ -45,7 +45,7 @@ function createTable(album) {
   let index = titles.indexOf(album);
   title.innerHTML = titlesString[index];
   title.setAttribute("id", "new-title");
-  // show comparison
+  // show comparison button
   if (album == fearless || album == red) {
     let comparison = document.createElement("button");
     comparison.innerHTML = "Compare to original version";
@@ -81,10 +81,12 @@ function createTable(album) {
   popularityHead.innerHTML = "Popularity";
   // popularityHead.onclick = sortTable(1);
   header.append(popularityHead);
+  /*
   // blank th for stats
   let statsHead = document.createElement("th");
   statsHead.innerHTML = "";
   header.append(statsHead);
+  */
   let position = 1;
   // loop through each song in the album array
   for (const song of album) {
@@ -106,10 +108,12 @@ function createTable(album) {
     let popularity = document.createElement("td");
     popularity.innerHTML = song["popularity"];
     row.append(popularity);
+    /*
     // column with 'plus' button for stats
     let stats = document.createElement("td");
     stats.innerHTML += '<span uk-icon="icon: plus; ratio: 1"></span>';
     row.append(stats);
+    */
     // add table to html code
     table.append(body);
     tableDiv.append(table);
@@ -198,7 +202,6 @@ const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
   deleteTable();
   createTable(taylorswift);
-  createStats(taylorswift[0]);
 });
 
 const fearlessButton = document.getElementById("fearless-btn");
