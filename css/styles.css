@@ -3,8 +3,65 @@
   src: url(../assets/fonts/Satisfaction.ttf);
 }
 
+@font-face {
+  font-family: "BALLAD";
+  src: url(../assets/fonts/BALLAD.ttf);
+}
+
+@font-face {
+  font-family: "Germany Sans";
+  src: url(../assets/fonts/GermanySans.ttf);
+}
+
+@font-face {
+  font-family: "Brianne's hand";
+  src: url(../assets/fonts/BriannesHand.ttf);
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url(../assets/fonts/DMSans.ttf);
+}
+
+@font-face {
+  font-family: "Bonita";
+  src: url(../assets/fonts/Bonita.ttf);
+}
+
+@font-face {
+  font-family: "IM FELL";
+  src: url(../assets/fonts/IMFell.ttf);
+}
+
+@font-face {
+  font-family: "Heading Pro";
+  src: url(../assets/fonts/HeadingPro.ttf);
+}
+
+@font-face {
+  font-family: "Zabal DEMO";
+  src: url(../assets/fonts/ZabalDEMO.otf);
+}
+
+@font-face {
+  font-family: "Engraver's Old English";
+  src: url(../assets/fonts/EngraversOldEnglish.otf);
+}
+
+
+
 html {
   height: 100%;
+}
+
+.background {
+  background-image: url(https://external-preview.redd.it/kxF5PWQf99VN7uNQOxfwQ2LK3NMspOiEpsCw_cENjLM.jpg?auto=webp&s=0834fef19ac73cfeb63bd6eb55b8f5e5b98b7579);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  filter: blur(8px); /* Adding blur background image */
+  position: relative;
 }
 
 body {
@@ -88,7 +145,7 @@ h2 {
 #red-btn {
   background: #d4ac9c;
   color: #94242c;
-  font-family: "Heading Pro Trial";
+  font-family: "Heading Pro";
 }
 
 #a1989-btn {
@@ -100,7 +157,7 @@ h2 {
 #rep-btn {
   background: rgb(226, 224, 224);
   color: #000;
-  font-family: "OPTIEngraversOldEnglish";
+  font-family: "Engraver's Old English";
 }
 
 #lover-btn {
@@ -113,14 +170,14 @@ h2 {
 #folklore-btn {
   background: #bababa;
   color: #2e2e2e;
-  font-family: "IM FELL DW Pica";
+  font-family: "IM FELL";
   font-style: italic;
 }
 
 #evermore-btn {
   background: #334941;
   color: #d2936c;
-  font-family: "IM FELL DW Pica";
+  font-family: "IM FELL";
   font-style: italic;
 }
 
