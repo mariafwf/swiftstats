@@ -36,8 +36,6 @@ Object.entries(albumsJSON).forEach((album) => {
 const tableDiv = document.getElementById("table-div");
 
 function createTable(album) {
-  document.getElementById("intro-div").style.marginTop = "30px";
-  document.getElementById("btn-div").style.marginTop = "30px";
   // sort album in descending order
   album.sort((x, y) => x.popularity < y.popularity ? 1 : x.popularity === y.popularity ? x.name > y.name ? 1 : -1 : -1);
   // album title
@@ -120,6 +118,33 @@ function createTable(album) {
   }
 }
 
+let nav = document.getElementById('nav');
+
+function createNav() {
+  nav.style.padding = '1.3rem';
+  let swiftstats = document.getElementById("swiftstats");
+  swiftstats.classList.add('nav-name');
+  nav.append(swiftstats);
+  tsButton.classList.add('nav-btn');
+  nav.append(tsButton);
+  fearlessButton.classList.add('nav-btn');
+  nav.append(fearlessButton);
+  speaknowButton.classList.add('nav-btn');
+  nav.append(speaknowButton);
+  redButton.classList.add('nav-btn');
+  nav.append(redButton);
+  a1989Button.classList.add('nav-btn');
+  nav.append(a1989Button);
+  repButton.classList.add('nav-btn');
+  nav.append(repButton);
+  loverButton.classList.add('nav-btn');
+  nav.append(loverButton);
+  folkloreButton.classList.add('nav-btn');
+  nav.append(folkloreButton);
+  evermoreButton.classList.add('nav-btn');
+  nav.append(evermoreButton);
+}
+
 /*
 function createComparison(album) {
     if (element['tv'] > element['sv']) {
@@ -190,8 +215,11 @@ function createStats(song) {
   }
 }
 
-
-function deleteTable() {
+function redesign() {
+  if (document.contains(document.getElementById("btn-div"))) {
+    document.getElementById("btn-div").remove();
+    document.getElementById("intro-div").remove();
+  }
   if (document.contains(document.getElementById("new-table"))) {
     document.getElementById("new-table").remove();
     document.getElementById("new-title").remove();
@@ -200,55 +228,64 @@ function deleteTable() {
 
 const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(taylorswift);
 });
 
 const fearlessButton = document.getElementById("fearless-btn");
 fearlessButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(fearless);
 });
 
 const speaknowButton = document.getElementById("speaknow-btn");
 speaknowButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(speaknow);
 });
 
 const redButton = document.getElementById("red-btn");
 redButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(red);
 });
 
 const a1989Button = document.getElementById("a1989-btn");
 a1989Button.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(a1989);
 });
 
 const repButton = document.getElementById("rep-btn");
 repButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(reputation);
 });
 
 const loverButton = document.getElementById("lover-btn");
 loverButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(lover);
 });
 
 const folkloreButton = document.getElementById("folklore-btn");
 folkloreButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(folklore);
 });
 
 const evermoreButton = document.getElementById("evermore-btn");
 evermoreButton.addEventListener("click", function onClick(_event) {
-  deleteTable();
+  createNav();
+  redesign();
   createTable(evermore);
 });
 
