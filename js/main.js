@@ -35,7 +35,7 @@ Object.entries(albumsJSON).forEach((album) => {
 
 const tableDiv = document.getElementById("table-div");
 
-function createTable(album) {
+function createTable(album, isComparison) {
   // sort album in descending order
   album.sort((x, y) => x.popularity < y.popularity ? 1 : x.popularity === y.popularity ? x.name > y.name ? 1 : -1 : -1);
   // album title
@@ -44,7 +44,7 @@ function createTable(album) {
   title.innerHTML = titlesString[index];
   title.setAttribute("id", "new-title");
   // show comparison button
-  if (album == fearless || album == red) {
+  if (isComparison) {
     let comparison = document.createElement("button");
     comparison.innerHTML = "Compare to original version";
     comparison.classList.add("uk-button");
@@ -121,7 +121,7 @@ function createTable(album) {
 let nav = document.getElementById('nav');
 
 function createNav() {
-  nav.style.padding = '1.3rem';
+  nav.style.padding = '0.7rem';
   let swiftstats = document.getElementById("swiftstats");
   swiftstats.classList.add('nav-name');
   nav.append(swiftstats);
@@ -226,6 +226,8 @@ function redesign() {
   }
 }
 
+let bgImage = document.getElementById('background');
+
 const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
   createNav();
@@ -273,6 +275,7 @@ loverButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
   createTable(lover);
+  bgImage.src = '/assets/img/lover.jpeg'
 });
 
 const folkloreButton = document.getElementById("folklore-btn");
@@ -280,6 +283,7 @@ folkloreButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
   createTable(folklore);
+  bgImage.src = '/assets/img/folklore.jpeg'
 });
 
 const evermoreButton = document.getElementById("evermore-btn");

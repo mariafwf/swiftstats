@@ -617,7 +617,7 @@ a.uk-link-reset {
 .uk-table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  width: 80%;
   margin-bottom: 20px;
 }
 * + .uk-table {

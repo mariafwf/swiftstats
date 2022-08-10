@@ -48,28 +48,28 @@
   src: url(../assets/fonts/EngraversOldEnglish.otf);
 }
 
-
-
 html {
-  height: 100%;
+  min-height: 100%;
 }
 
-/* uncomment if using bg image
-.background {
+#background {
   position: absolute;
-  left: 0px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  left: 0px;
+  min-height: 100%;
+  min-width: 100%;
   top: 0px;
   z-index: -1;
-  width: 100%;
-  height: 100%;
   -webkit-filter: blur(3px);
   filter: blur(5px);
 }
-*/
+
 
 body {
   font-family: "DM Sans";
-  background: #F2F2F2; /* comment out if using bg image */
+  /*background: #F2F2F2;*/
   color: #000;
   font-weight: 100;
   margin: 0;
@@ -128,26 +128,27 @@ h2 {
 }
 
 #nav {
-  background-color: rgb(224, 219, 219);
+  background-color: rgba(249, 246, 246, 0.267);
   position: relative;
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .nav-name {
-  font-size: 20px;
-  margin-right: 50px;
+  font-size: 18px;
+  margin-right: 100px;
+  padding-top: 8px;
   float: left;
 }
 
 .nav-btn {
-  padding: 0.7rem 1.1rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 10px;
   font-weight: 400;
   letter-spacing: 3px;
-  margin: 10px;
+  margin-left: 8px;
   font-size: 12px;
   border: none;
   cursor: pointer;
@@ -195,7 +196,6 @@ h2 {
   background: #ebbad1;
   color: #b2426f;
   font-family: "Bonita";
-  font-size: 20px;
 }
 
 #folklore-btn {
@@ -222,7 +222,7 @@ h2 {
 
 table {
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffffbc;
   box-shadow: 0 5px 30px 0px rgba(40, 39, 38, 0.246);
 }
 
@@ -233,7 +233,7 @@ td {
 }
 
 th {
-  padding: 10px;
+  padding-right: 15px;
   font-weight: bold;
 }
 
