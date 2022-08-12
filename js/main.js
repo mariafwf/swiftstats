@@ -79,12 +79,13 @@ function createTable(album, isComparison) {
     case lover:
       title.style.fontFamily = 'Bonita';
       title.style.color = '#b2426f';
-      page.style.backgroundColor = '#ebbad1';
+      page.style.backgroundImage = 'url(assets/img/lover.jpeg)';
       break;
     case folklore:
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#2e2e2e';
       page.style.backgroundColor = '#bababa';
+      page.style.backgroundImage = 'url(assets/img/folklore.jpeg)';
       break;
     case evermore:
       title.style.fontFamily = 'IM FELL';
@@ -277,21 +278,6 @@ function redesign() {
     document.getElementById("new-title").remove();
   }
 }
-
-/* figure out how to apply the bg image to entire window WITH scrolling
-
-let bgImage = document.getElementById('background');
-let body = document.body;
-let html = document.documentElement;
-function setBackground(album) {
-  let scrollHeight = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight
-  );
-  bgImage.src = '/assets/img/lover.jpeg'
-  bgImage.style.height = scrollHeight;
-} */
 
 const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
