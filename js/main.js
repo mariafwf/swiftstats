@@ -3,7 +3,7 @@ import albumsJSON from "/backend/album-stats.json" assert { type: "json" };
 let taylorswift = []; let fearless = []; let speaknow = []; let red = []; let a1989 = [];
 let reputation = []; let lover = []; let folklore = []; let evermore = [];
 let titles = [taylorswift, fearless, speaknow, red, a1989, reputation, lover, folklore, evermore];
-let titlesString = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe Package)", "Red (Taylor's Version)", 
+let titlesString = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe Package)", "RED (Taylor's Version)", 
                     "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)"]
 let i = 0;
 
@@ -34,6 +34,7 @@ Object.entries(albumsJSON).forEach((album) => {
 });
 
 const tableDiv = document.getElementById("table-div");
+let page = document.body;
 
 function createTable(album, isComparison) {
   // sort album in descending order
@@ -43,6 +44,56 @@ function createTable(album, isComparison) {
   let index = titles.indexOf(album);
   title.innerHTML = titlesString[index];
   title.setAttribute("id", "new-title");
+  title.classList.add('title');
+  switch(album) {
+    case taylorswift:
+      title.style.fontFamily = 'Satisfaction';
+      title.style.color = '#fff';
+      page.style.backgroundColor = '#00a3ad';
+      break;
+    case fearless:
+      title.style.fontFamily = 'Germany Sans';
+      title.style.color = '#eccc8c';
+      page.style.backgroundColor = '#744f2d';
+      break;
+    case speaknow:
+      title.style.fontFamily = 'Satisfaction';
+      title.style.color = '#fff';
+      page.style.backgroundColor = '#52316b';
+      break;
+    case red:
+      title.style.fontFamily = 'Heading Pro';
+      title.style.color = '#94242c';
+      page.style.backgroundColor = '#d4ac9c';
+      break;
+    case a1989:
+      title.style.fontFamily = 'Briannes hand';
+      title.style.color = '#4d5266';
+      page.style.backgroundColor = '#d7d8ce';
+      break;
+    case reputation:
+      title.style.fontFamily = 'Engravers Old English';
+      title.style.color = '#000';
+      page.style.backgroundColor = 'rgb(226, 224, 224)';
+      break
+    case lover:
+      title.style.fontFamily = 'Bonita';
+      title.style.color = '#b2426f';
+      page.style.backgroundColor = '#ebbad1';
+      break;
+    case folklore:
+      title.style.fontFamily = 'IM FELL';
+      title.style.color = '#2e2e2e';
+      page.style.backgroundColor = '#bababa';
+      break;
+    case evermore:
+      title.style.fontFamily = 'IM FELL';
+      title.style.color = '#d2936c';
+      page.style.backgroundColor = '#334941';
+    break;
+    default:
+      break;
+  }
   // show comparison button
   if (isComparison) {
     let comparison = document.createElement("button");
@@ -105,6 +156,7 @@ function createTable(album, isComparison) {
     // column with popularity
     let popularity = document.createElement("td");
     popularity.innerHTML = song["popularity"];
+    popularity.style.color = song["popularity"] > 65 ? 'rgb(3, 74, 7)' : song["popularity"] > 50 ? 'rgb(183, 90, 4)' : 'rgb(200, 4, 4)';
     row.append(popularity);
     /*
     // column with 'plus' button for stats
@@ -226,7 +278,20 @@ function redesign() {
   }
 }
 
+/* figure out how to apply the bg image to entire window WITH scrolling
+
 let bgImage = document.getElementById('background');
+let body = document.body;
+let html = document.documentElement;
+function setBackground(album) {
+  let scrollHeight = Math.max(
+    document.body.scrollHeight, document.documentElement.scrollHeight,
+    document.body.offsetHeight, document.documentElement.offsetHeight,
+    document.body.clientHeight, document.documentElement.clientHeight
+  );
+  bgImage.src = '/assets/img/lover.jpeg'
+  bgImage.style.height = scrollHeight;
+} */
 
 const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
@@ -275,7 +340,6 @@ loverButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
   createTable(lover);
-  bgImage.src = '/assets/img/lover.jpeg'
 });
 
 const folkloreButton = document.getElementById("folklore-btn");
@@ -283,7 +347,6 @@ folkloreButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
   createTable(folklore);
-  bgImage.src = '/assets/img/folklore.jpeg'
 });
 
 const evermoreButton = document.getElementById("evermore-btn");
