@@ -1,37 +1,7 @@
 import albumsJSON from "/backend/album-stats.json" assert { type: "json" };
 
-let taylorswift = []; let fearless = []; let speaknow = []; let red = []; let a1989 = [];
-let reputation = []; let lover = []; let folklore = []; let evermore = [];
-let titles = [taylorswift, fearless, speaknow, red, a1989, reputation, lover, folklore, evermore];
 let titlesString = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe Package)", "RED (Taylor's Version)", 
                     "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)"]
-let i = 0;
-
-// helper function to import albums from JSON
-Object.entries(albumsJSON).forEach((album) => {
-  const [_name, songs] = album;
-  for (const song of songs) {
-    const newSong = {};
-    newSong._id = song._id;
-    newSong.name = song.name;
-    newSong.id = song.id;
-    newSong.album = song.album;
-    newSong.release_date = song.release_date;
-    newSong.length = song.length;
-    newSong.popularity = song.popularity;
-    newSong.acousticness = song.acousticness;
-    newSong.danceability = song.danceability;
-    newSong.energy = song.energy;
-    newSong.instrumentalness = song.instrumentalness;
-    newSong.liveness = song.liveness;
-    newSong.loudness = song.loudness;
-    newSong.speechiness = song.speechiness;
-    newSong.tempo = song.tempo;
-    newSong.time_signature = song.time_signature;
-    titles[i].push(newSong);
-  }
-  i++;
-});
 
 const tableDiv = document.getElementById("table-div");
 let page = document.body;
@@ -41,54 +11,61 @@ function createTable(album, isComparison) {
   album.sort((x, y) => x.popularity < y.popularity ? 1 : x.popularity === y.popularity ? x.name > y.name ? 1 : -1 : -1);
   // album title
   let title = document.createElement("div");
-  let index = titles.indexOf(album);
-  title.innerHTML = titlesString[index];
   title.setAttribute("id", "new-title");
   title.classList.add('title');
   switch(album) {
-    case taylorswift:
+    case albumsJSON.taylorswift:
+      title.innerHTML = titlesString[0];
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
       page.style.backgroundImage = 'url(assets/img/debut.jpeg)';
       break;
-    case fearless:
+    case albumsJSON.fearless:
+      title.innerHTML = titlesString[1];
       title.style.fontFamily = 'Germany Sans';
       title.style.color = '#eccc8c';
       page.style.backgroundColor = '#744f2d';
       page.style.backgroundImage = 'url(assets/img/fearless.jpeg)';
       break;
-    case speaknow:
+    case albumsJSON.speaknow:
+      title.innerHTML = titlesString[2];
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
       page.style.backgroundImage = 'url(assets/img/speaknow.jpeg)';
       break;
-    case red:
+    case albumsJSON.red:
+      title.innerHTML = titlesString[3];
       title.style.fontFamily = 'Heading Pro';
       title.style.color = '#94242c';
       page.style.backgroundImage = 'url(assets/img/red.jpeg)';
       break;
-    case a1989:
+    case albumsJSON.a1989:
+      title.innerHTML = titlesString[4];
       title.style.fontFamily = 'Briannes hand';
       title.style.color = '#4d5266';
       page.style.backgroundImage = 'url(assets/img/a1989.jpeg)';
       break;
-    case reputation:
+    case albumsJSON.reputation:
+      title.innerHTML = titlesString[5];
       title.style.fontFamily = 'Engravers Old English';
       title.style.color = '#fff';
       page.style.backgroundImage = 'url(assets/img/rep.png)';
       break
-    case lover:
+    case albumsJSON.lover:
+      title.innerHTML = titlesString[6];
       title.style.fontFamily = 'Bonita';
       title.style.color = '#b2426f';
       page.style.backgroundImage = 'url(assets/img/lover.jpeg)';
       break;
-    case folklore:
+    case albumsJSON.folklore:
+      title.innerHTML = titlesString[7];
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#2e2e2e';
       page.style.backgroundColor = '#bababa';
       page.style.backgroundImage = 'url(assets/img/folklore.jpeg)';
       break;
-    case evermore:
+    case albumsJSON.evermore:
+      title.innerHTML = titlesString[8];
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#d2936c';
       page.style.backgroundImage = 'url(assets/img/evermore.jpeg)';
@@ -284,63 +261,63 @@ const tsButton = document.getElementById("ts-btn");
 tsButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(taylorswift);
+  createTable(albumsJSON.taylorswift, false);
 });
 
 const fearlessButton = document.getElementById("fearless-btn");
 fearlessButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(fearless);
+  createTable(albumsJSON.fearless, true);
 });
 
 const speaknowButton = document.getElementById("speaknow-btn");
 speaknowButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(speaknow);
+  createTable(albumsJSON.speaknow, false);
 });
 
 const redButton = document.getElementById("red-btn");
 redButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(red);
+  createTable(albumsJSON.red, true);
 });
 
 const a1989Button = document.getElementById("a1989-btn");
 a1989Button.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(a1989);
+  createTable(albumsJSON.a1989, false);
 });
 
 const repButton = document.getElementById("rep-btn");
 repButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(reputation);
+  createTable(albumsJSON.reputation, false);
 });
 
 const loverButton = document.getElementById("lover-btn");
 loverButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(lover);
+  createTable(albumsJSON.lover, false);
 });
 
 const folkloreButton = document.getElementById("folklore-btn");
 folkloreButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(folklore);
+  createTable(albumsJSON.folklore, false);
 });
 
 const evermoreButton = document.getElementById("evermore-btn");
 evermoreButton.addEventListener("click", function onClick(_event) {
   createNav();
   redesign();
-  createTable(evermore);
+  createTable(albumsJSON.evermore, false);
 });
 
 function sortTable(n) {
