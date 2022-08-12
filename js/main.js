@@ -49,32 +49,33 @@ function createTable(album, isComparison) {
     case taylorswift:
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
-      page.style.backgroundColor = '#00a3ad';
+      page.style.backgroundImage = 'url(assets/img/debut.jpeg)';
       break;
     case fearless:
       title.style.fontFamily = 'Germany Sans';
       title.style.color = '#eccc8c';
       page.style.backgroundColor = '#744f2d';
+      page.style.backgroundImage = 'url(assets/img/fearless.jpeg)';
       break;
     case speaknow:
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
-      page.style.backgroundColor = '#52316b';
+      page.style.backgroundImage = 'url(assets/img/speaknow.jpeg)';
       break;
     case red:
       title.style.fontFamily = 'Heading Pro';
       title.style.color = '#94242c';
-      page.style.backgroundColor = '#d4ac9c';
+      page.style.backgroundImage = 'url(assets/img/red.jpeg)';
       break;
     case a1989:
       title.style.fontFamily = 'Briannes hand';
       title.style.color = '#4d5266';
-      page.style.backgroundColor = '#d7d8ce';
+      page.style.backgroundImage = 'url(assets/img/a1989.jpeg)';
       break;
     case reputation:
       title.style.fontFamily = 'Engravers Old English';
-      title.style.color = '#000';
-      page.style.backgroundColor = 'rgb(226, 224, 224)';
+      title.style.color = '#fff';
+      page.style.backgroundImage = 'url(assets/img/rep.png)';
       break
     case lover:
       title.style.fontFamily = 'Bonita';
@@ -90,7 +91,7 @@ function createTable(album, isComparison) {
     case evermore:
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#d2936c';
-      page.style.backgroundColor = '#334941';
+      page.style.backgroundImage = 'url(assets/img/evermore.jpeg)';
     break;
     default:
       break;
