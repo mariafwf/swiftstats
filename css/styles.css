@@ -53,6 +53,7 @@ body {
   background-image: url(../assets/img/lover.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
+  backdrop-filter: blur(5px);
 }
 
 #background {
@@ -128,7 +129,7 @@ h2 {
 }
 
 #nav {
-  background-color: rgba(249, 246, 246, 0.267);
+  background-color: rgba(250, 248, 248, 0);
   position: relative;
   align-items: center;
   justify-content: center;
@@ -137,10 +138,11 @@ h2 {
 }
 
 .nav-name {
-  font-size: 18px;
+  font-size: 24px;
   margin-right: 100px;
   padding-top: 8px;
   float: left;
+  margin-top: 20px;
 }
 
 .nav-btn {
@@ -149,6 +151,8 @@ h2 {
   font-weight: 400;
   letter-spacing: 3px;
   margin-left: 8px;
+  margin-top: 10px;
+  margin-bottom: 0px;
   font-size: 12px;
   border: none;
   cursor: pointer;
@@ -224,8 +228,8 @@ h2 {
   font-size: 40px;
   text-align: center;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.542);
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
 }
 
 table {
@@ -238,16 +242,15 @@ th,
 td {
   border-bottom: 1px solid #7b767674;
   line-height: 18px;
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.394);
 }
 
 th {
   padding-right: 15px;
-  font-weight: bold;
 }
 
 td {
   padding: 25px 25px;
+  font-weight: 500;
 }
 
 tbody > tr:last-child > td {

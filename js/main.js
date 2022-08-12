@@ -1,7 +1,7 @@
 import albumsJSON from "/backend/album-stats.json" assert { type: "json" };
 
-let titlesString = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe Package)", "RED (Taylor's Version)", 
-                    "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)"]
+let titles = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe Package)", "RED (Taylor's Version)", 
+              "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)"]
 
 const tableDiv = document.getElementById("table-div");
 let page = document.body;
@@ -15,57 +15,55 @@ function createTable(album, isComparison) {
   title.classList.add('title');
   switch(album) {
     case albumsJSON.taylorswift:
-      title.innerHTML = titlesString[0];
+      title.innerHTML = titles[0];
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
-      page.style.backgroundImage = 'url(assets/img/debut.jpeg)';
+      page.style.backgroundImage = 'url(assets/img/debut.jpg)';
       break;
     case albumsJSON.fearless:
-      title.innerHTML = titlesString[1];
+      title.innerHTML = titles[1];
       title.style.fontFamily = 'Germany Sans';
       title.style.color = '#eccc8c';
-      page.style.backgroundColor = '#744f2d';
       page.style.backgroundImage = 'url(assets/img/fearless.jpeg)';
       break;
     case albumsJSON.speaknow:
-      title.innerHTML = titlesString[2];
+      title.innerHTML = titles[2];
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
       page.style.backgroundImage = 'url(assets/img/speaknow.jpeg)';
       break;
     case albumsJSON.red:
-      title.innerHTML = titlesString[3];
+      title.innerHTML = titles[3];
       title.style.fontFamily = 'Heading Pro';
       title.style.color = '#94242c';
       page.style.backgroundImage = 'url(assets/img/red.jpeg)';
       break;
     case albumsJSON.a1989:
-      title.innerHTML = titlesString[4];
+      title.innerHTML = titles[4];
       title.style.fontFamily = 'Briannes hand';
       title.style.color = '#4d5266';
       page.style.backgroundImage = 'url(assets/img/a1989.jpeg)';
       break;
     case albumsJSON.reputation:
-      title.innerHTML = titlesString[5];
+      title.innerHTML = titles[5];
       title.style.fontFamily = 'Engravers Old English';
       title.style.color = '#fff';
-      page.style.backgroundImage = 'url(assets/img/rep.png)';
+      page.style.backgroundImage = 'url(assets/img/rep.jpg)';
       break
     case albumsJSON.lover:
-      title.innerHTML = titlesString[6];
+      title.innerHTML = titles[6];
       title.style.fontFamily = 'Bonita';
       title.style.color = '#b2426f';
       page.style.backgroundImage = 'url(assets/img/lover.jpeg)';
       break;
     case albumsJSON.folklore:
-      title.innerHTML = titlesString[7];
+      title.innerHTML = titles[7];
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#2e2e2e';
-      page.style.backgroundColor = '#bababa';
-      page.style.backgroundImage = 'url(assets/img/folklore.jpeg)';
+      page.style.backgroundImage = 'url(assets/img/folklore.jpg)';
       break;
     case albumsJSON.evermore:
-      title.innerHTML = titlesString[8];
+      title.innerHTML = titles[8];
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#d2936c';
       page.style.backgroundImage = 'url(assets/img/evermore.jpeg)';
@@ -152,7 +150,6 @@ function createTable(album, isComparison) {
 let nav = document.getElementById('nav');
 
 function createNav() {
-  nav.style.padding = '0.7rem';
   let swiftstats = document.getElementById("swiftstats");
   swiftstats.classList.add('nav-name');
   nav.append(swiftstats);
