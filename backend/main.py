@@ -4,6 +4,8 @@ import time
 import json
 import Constants
 import bson.json_util as json_util
+import schedule
+import time
 
 from pymongo import MongoClient
 
@@ -198,12 +200,50 @@ def read_comparison_into_json():
   with open("comparison.json", "w") as outfile:
    outfile.write(json_util.dumps(comparisons_to_json))
 
+# 
 # UPDATE 
+#
 
-# TODO: update popularity indices every 24 hours
+# update popularity index of all songs in one album
 
+def update_individual_album_popularity_indices(album):
+  db = conn.albums
+  myalbum = db[album]
 
+  jsonFile = open("album_all_statistics.json", "r") # Open the JSON file for reading
+  data = json.load(jsonFile) # Read the JSON into the buffer
+  jsonFile.close() # Close the JSON file
+  
+  album_json = data[album]
 
+  song_index_in_list = 0
+
+  for doc in myalbum.find(): 
+    track_id = doc['id']
+    meta = sp.track(track_id)
+    new_popularity_index = meta['popularity']
+    myalbum.update_one({'_id': doc['_id']}, {'$set':{'popularity' : new_popularity_index}})
+    album_json[song_index_in_list]["popularity"] = new_popularity_index
+    song_index_in_list = song_index_in_list + 1
+  
+  jsonFile = open("album_all_statistics.json", "w+")
+  jsonFile.write(json.dumps(data))
+  jsonFile.close()
+
+# update all albums
+def update_all_albums_popularity_indices():
+  for album in albums_playlist_ids:
+    update_individual_album_popularity_indices(album)
+
+# automating update process every 24 hours
+schedule.every().day.at("10:30").do(update_all_albums_popularity_indices)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
+#
 # DELETE
+#
 
 # TODO : function to delete collection, song if needed
