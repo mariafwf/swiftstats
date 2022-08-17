@@ -4,6 +4,7 @@ let titles = ["Taylor Swift", "Fearless (Taylor's Version)", "Speak Now (Deluxe 
               "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)"]
 
 const tableDiv = document.getElementById("table-div");
+let siteName = document.getElementById("swiftstats")
 let page = document.body;
 
 function createTable(album, isComparison) {
@@ -18,55 +19,64 @@ function createTable(album, isComparison) {
       title.innerHTML = titles[0];
       title.style.fontFamily = 'Satisfaction';
       title.style.color = '#fff';
+      siteName.style.color = '#fff';
       page.style.backgroundImage = 'url(assets/img/debut.jpg)';
       break;
     case albumsJSON.fearless:
       title.innerHTML = titles[1];
       title.style.fontFamily = 'Germany Sans';
       title.style.color = '#eccc8c';
-      page.style.backgroundImage = 'url(assets/img/fearless.jpeg)';
+      siteName.style.color = '#000';
+      page.style.backgroundImage = 'url(assets/img/fearless.jpg)';
       break;
     case albumsJSON.speaknow:
       title.innerHTML = titles[2];
       title.style.fontFamily = 'Satisfaction';
-      title.style.color = '#fff';
-      page.style.backgroundImage = 'url(assets/img/speaknow.jpeg)';
+      title.style.color = '#52316b';
+      siteName.style.color = '#000';
+      page.style.backgroundImage = 'url(assets/img/speaknow.jpg)';
       break;
     case albumsJSON.red:
       title.innerHTML = titles[3];
       title.style.fontFamily = 'Heading Pro';
       title.style.color = '#94242c';
-      page.style.backgroundImage = 'url(assets/img/red.jpeg)';
+      siteName.style.color = '#000';
+      page.style.backgroundImage = 'url(assets/img/red.jpg)';
       break;
     case albumsJSON.a1989:
       title.innerHTML = titles[4];
       title.style.fontFamily = 'Briannes hand';
-      title.style.color = '#4d5266';
-      page.style.backgroundImage = 'url(assets/img/a1989.jpeg)';
+      title.style.color = '#d7d8ce';
+      siteName.style.color = '#000';
+      page.style.backgroundImage = 'url(assets/img/a1989.jpg)';
       break;
     case albumsJSON.reputation:
       title.innerHTML = titles[5];
       title.style.fontFamily = 'Engravers Old English';
       title.style.color = '#fff';
+      siteName.style.color = '#fff';
       page.style.backgroundImage = 'url(assets/img/rep.jpg)';
       break
     case albumsJSON.lover:
       title.innerHTML = titles[6];
       title.style.fontFamily = 'Bonita';
       title.style.color = '#b2426f';
+      siteName.style.color = '#000';
       page.style.backgroundImage = 'url(assets/img/lover.jpeg)';
       break;
     case albumsJSON.folklore:
       title.innerHTML = titles[7];
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#2e2e2e';
+      siteName.style.color = '#000';
       page.style.backgroundImage = 'url(assets/img/folklore.jpg)';
       break;
     case albumsJSON.evermore:
       title.innerHTML = titles[8];
       title.style.fontFamily = 'IM FELL';
       title.style.color = '#d2936c';
-      page.style.backgroundImage = 'url(assets/img/evermore.jpeg)';
+      siteName.style.color = '#000';
+      page.style.backgroundImage = 'url(assets/img/evermore.jpg)';
     break;
     default:
       break;
@@ -105,7 +115,7 @@ function createTable(album, isComparison) {
   // th for popularity
   let popularityHead = document.createElement("th");
   popularityHead.innerHTML = "Popularity";
-  // popularityHead.onclick = sortTable(1);
+  popularityHead.setAttribute("id", "popHeader");
   header.append(popularityHead);
   /*
   // blank th for stats
@@ -145,9 +155,55 @@ function createTable(album, isComparison) {
     table.append(body);
     tableDiv.append(table);
   }
+  const sortB = document.getElementById("sort-btn");
+  sortB.onclick = function() {
+  if (table.rows.length == 0) {
+    console.log("table is empty");
+  } else {
+    let rows,
+      index,
+      first,
+      second,
+      should,
+      count = 0;
+    let switching = true;
+    let dir = "asc";
+    while (switching) {
+      switching = false;
+      rows = table.rows.length;
+      for (index = 1; index < rows.length - 1; index++) {
+        should = false;
+        first = rows[index].getElementsByTagName("td")[0];
+        second = rows[index + 1].getElementsByTagName("td")[0];
+        if (dir == "asc") {
+          if (first.innerHTML.toLowerCase() > second.innerHTML.toLowerCase()) {
+            should = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (first.innerHTML.toLowerCase() < second.innerHTML.toLowerCase()) {
+            should = true;
+            break;
+          }
+        }
+      }
+      if (should) {
+        rows[index].parentNode.insertBefore(rows[index + 1], rows[index]);
+        switching = true;
+        count++;
+      } else {
+        if (count == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+}
 }
 
 let nav = document.getElementById('nav');
+
 
 function createNav() {
   let swiftstats = document.getElementById("swiftstats");
@@ -317,48 +373,3 @@ evermoreButton.addEventListener("click", function onClick(_event) {
   createTable(albumsJSON.evermore, false);
 });
 
-function sortTable(n) {
-  let table = document.getElementById("new-table");
-  if (table.rows.length == 0) {
-    console.log("table is empty");
-  } else {
-    let rows,
-      index,
-      first,
-      second,
-      should,
-      count = 0;
-    let switching = true;
-    let dir = "asc";
-    while (switching) {
-      switching = false;
-      rows = table.rows.length;
-      for (index = 1; index < rows.length - 1; index++) {
-        should = false;
-        first = rows[index].getElementsByTagName("td")[n];
-        second = rows[index + 1].getElementsByTagName("td")[n];
-        if (dir == "asc") {
-          if (first.innerHTML.toLowerCase() > second.innerHTML.toLowerCase()) {
-            should = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (first.innerHTML.toLowerCase() < second.innerHTML.toLowerCase()) {
-            should = true;
-            break;
-          }
-        }
-      }
-      if (should) {
-        rows[index].parentNode.insertBefore(rows[index + 1], rows[index]);
-        switching = true;
-        count++;
-      } else {
-        if (count == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
-      }
-    }
-  }
-}
