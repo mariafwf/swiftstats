@@ -25,6 +25,10 @@ tv_sv_comparison_ids = {
   "fearless" : {
     "fearless_sv" : Constants.FEARLESS_SV_COMPARE_ID,
     "fearless_tv" : Constants.FEARLESS_TV_COMPARE_ID
+  },
+  "red" : {
+    "red_sv" : Constants.RED_SV_COMPARE_ID,
+    "red_tv" : Constants.RED_TV_COMPARE_ID,
   }
 }
 
@@ -175,7 +179,7 @@ def read_album_all_statistics_into_json():
   with open("album_all_statistics.json", "w") as outfile:
    outfile.write(json_util.dumps(albums_to_json))
 
-read_album_all_statistics_into_json()
+# read_album_all_statistics_into_json()
 
 # COMPARISON ALBUMS 
 
@@ -199,6 +203,9 @@ def read_comparison_into_json():
   comparisons_to_json = read_comparison_collection()
   with open("comparison.json", "w") as outfile:
    outfile.write(json_util.dumps(comparisons_to_json))
+
+
+read_comparison_into_json()
 
 # 
 # UPDATE 
@@ -236,11 +243,13 @@ def update_all_albums_popularity_indices():
     update_individual_album_popularity_indices(album)
 
 # automating update process every 24 hours
-schedule.every().day.at("10:30").do(update_all_albums_popularity_indices)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# schedule.every().day.at("10:30").do(update_all_albums_popularity_indices)
+
+
+# while True:
+   # schedule.run_pending()
+   # time.sleep(1)
 
 #
 # DELETE
