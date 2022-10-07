@@ -1,2 +1,1 @@
-Hello! - Adviti
-Hi! - Maria
+WORK IN PROGRESS - hello! This is the code for a website that displays spotify's popularity index metric for Taylor Swift's discography. You also have the option of comparing the popularity indices of the Taylor's Version songs against the original version songs to gauge the efficacy of Taylor Swift's strategy to rerecord her masters to support rightful ownership.
