@@ -90,21 +90,31 @@ function createTable(album) {
         break;
     }
     // show comparison button
-    if (album == albumsJSON.fearless || album == albumsJSON.red) {
-      let comparison = document.createElement("button");
-      comparison.innerHTML = "Compare to original version";
-      comparison.classList.add("compare-btn");
-      comparison.setAttribute("id", "comparison-btn");
-      album == albumsJSON.fearless ? comparison.classList.add("fearless-compare") : comparison.classList.add("red-compare");
-      comparison.onclick = function() {createComparison(album)};
-      title.append(comparison);
+    switch(album) {
+      case albumsJSON.fearless:
+        let comparisonF = document.createElement("button");
+        comparisonF.innerHTML = "Compare to original version";
+        comparisonF.classList.add("compare-btn");
+        comparisonF.setAttribute("id", "comparison-btn");
+        album == albumsJSON.fearless ? comparisonF.classList.add("fearless-compare") : comparisonF.classList.add("red-compare");
+        comparisonF.onclick = function() {createComparison(compareJSON.fearless)};
+        title.append(comparisonF);
+        tableDiv.append(title);
+        break;
+      case albumsJSON.red:
+        let comparisonR = document.createElement("button");
+        comparisonR.innerHTML = "Compare to original version";
+        comparisonR.classList.add("compare-btn");
+        comparisonR.setAttribute("id", "comparison-btn");
+        album == albumsJSON.fearless ? comparisonR.classList.add("fearless-compare") : comparisonR.classList.add("red-compare");
+        comparisonR.onclick = function() {createComparison(compareJSON.fearless)};
+        title.append(comparisonR);
+        tableDiv.append(title);
+        break;
+
+      default:
+        break;
     }
-    tableDiv.append(title);
-  }
-  else {
-    let btn = document.getElementById("comparison-btn");
-    btn.innerHTML = "Compare to original version";
-    btn.onclick = function() {createComparison(album)};
   }
   // new table with UIKit classes
   let table = document.createElement("table");
@@ -204,6 +214,7 @@ function createTable(album) {
 }
 }
 
+
 let nav = document.getElementById('nav');
 
 
@@ -285,10 +296,10 @@ function createComparison(album) {
     row.append(name);
     // columns with popularity
     let tv = document.createElement("td");
-    tv.innerHTML = song["popularity"];
+    tv.innerHTML = song["tv_pi"];
     row.append(tv);
     let sv = document.createElement("td");
-    sv.innerHTML = song["popularity"];
+    sv.innerHTML = song["sv_pi"];
     row.append(sv);
     // add table to html code
     table.append(body);
