@@ -108,9 +108,7 @@ function createTable(album) {
   }
   // new table with UIKit classes
   let table = document.createElement("table");
-  table.classList.add("uk-table");
-  table.classList.add("uk-table-hover");
-  table.classList.add("uk-table-divider");
+  table.classList.add('uk-table', 'uk-table-hover', 'uk-table-divider');
   table.setAttribute("id", "new-table");
   // new table header
   let tHead = document.createElement("thead");
@@ -238,9 +236,7 @@ function createComparison(album) {
   btn.onclick = function() {createTable(album)};
   // new table with UIKit classes
   let table = document.createElement("table");
-  table.classList.add("uk-table");
-  table.classList.add("uk-table-hover");
-  table.classList.add("uk-table-divider");
+  table.classList.add('uk-table', 'uk-table-hover', 'uk-table-divider');
   table.style.width = "75%";
   table.setAttribute("id", "new-table");
   // new table header
@@ -293,75 +289,6 @@ function createComparison(album) {
     // add table to html code
     table.append(body);
     tableDiv.append(table);
-  }
-
-    /*
-
-    if (element['tv'] > element['sv']) {
-      let tvGreen = document.createElement('div');
-      tvGreen.classList.add('alert');
-      tvGreen.classList.add('uk-alert-success');
-      tvGreen.innerHTML = element['tv'];
-      const tv = document.createElement('td');
-      tv.append(tvGreen);
-      songRow.append(tv);
-      let svRed = document.createElement('div');
-      svRed.classList.add('alert');
-      svRed.classList.add('uk-alert-danger');
-      svRed.innerHTML = element['sv'];
-      const sv = document.createElement('td');
-      sv.append(svRed);
-      songRow.append(sv);
-    }
-    else {
-      let tvRed = document.createElement('div');
-      tvRed.classList.add('alert');
-      tvRed.classList.add('uk-alert-danger');
-      tvRed.innerHTML = element['tv'];
-      const tv = document.createElement('td');
-      tv.append(tvRed);
-      songRow.append(tv);
-      let svGreen = document.createElement('div');
-      svGreen.classList.add('alert');
-      svGreen.classList.add('uk-alert-success');
-      svGreen.innerHTML = element['sv'];
-      const sv = document.createElement('td');
-      sv.append(svGreen);
-      songRow.append(sv);
-
-      */
-}
-
-const statsDiv = document.getElementById("stats-div");
-
-function createStats(song) {
-  // name and general stats
-  let nameDiv = document.createElement("div");
-  let lengthDiv = document.createElement("div");
-  let releaseDiv = document.createElement("div");
-  // audio features
-  let popularity = document.createElement("progress");
-  let acousticness = document.createElement("progress");
-  let danceability = document.createElement("progress");
-  let energy = document.createElement("progress");
-  let liveness = document.createElement("progress");
-  let loudness = document.createElement("progress");
-  let speechiness = document.createElement("progress");
-  let tempo = document.createElement("progress");
-  let audioFeatures = [popularity, acousticness, danceability, energy, liveness, loudness, speechiness, tempo];
-  let audioTitles = ["popularity", "acousticness", "danceability", "energy", "liveness", "loudness", "speechiness", "tempo"];
-  let maxVals = [100, 1, 1, 1, 1, 0, 1, 300];
-  let index = 0;
-
-  for (const feature of audioFeatures) {
-    let title = document.createElement("div");
-    title.innerHTML = audioTitles[index] + " " + song[audioTitles[index]];
-    feature.setAttribute("max", maxVals[index]);
-    feature.setAttribute("value", song[audioTitles[index]]);
-    feature.classList.add("uk-progress");
-    statsDiv.append(title);
-    statsDiv.append(feature);
-    index++;
   }
 }
 
