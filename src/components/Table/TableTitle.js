@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Title = ({ name, font, color, size }) => {
+const TableTitle = ({ name, font, color, size }) => {
 
     const styleTitle = {
         fontSize: size,
@@ -16,4 +16,4 @@ const Title = ({ name, font, color, size }) => {
   )
 }
 
-export default Title;
+export default TableTitle;

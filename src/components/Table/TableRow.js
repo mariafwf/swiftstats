@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const TableRow = ({position, name, popularity}) => {
+const TableRow = ({ position, name, popularity }) => {
     
   return (
     <tr>
