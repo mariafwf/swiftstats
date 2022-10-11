@@ -1,0 +1,17 @@
+CLIENT_ID = '935df3b5c24445c9b8b8d762ce974999'
+CLIENT_SECRET = 'ce2c610c16a54315819f81158237e2ce'
+USER_ID = 'hzbi6l653qv6b8us2s4hkyqyi'
+
+MONGODB_CLIENTURI = 'mongodb+srv://adviti:advititaylorswift@cluster0.w7mm71t.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true&tlsAllowInvalidCertificates=true'
+TAYLORSWIFT_ID = '0Pu2SkEPbSbWtj89uibq6a?si=3ba3144337934869'
+FEARLESS_ID = '320hNW54JnfqCIN9QORtPy?si=b9d0429ca8714023'
+SPEAKNOW_ID =  '08pK3XWpOtEzf8Rz51Pdvh?si=be741f3d6ff74f8b'
+RED_ID = '44f7kuKKAEZDOviuzZDeyq?si=b3bee18692d74fcd'
+_1989_ID = '6YApTIDJsn4x92gLKnpnvG?si=b17c9ebec72a4b15'
+REPUATION_ID = '5swiLchK3f2P57aFJyBEdM?si=82143c3b6ac94523'
+LOVER_ID = '7A3pPd0M8kRnCgdrfFJVJj?si=9ef1923c8e394ee2'
+FOLKLORE_ID = '4QCQUlgBabBgIHeOpqFt5d?si=eb6aefc8fba341ce'
+EVERMORE_ID = '0gXPwkwK5RXvl49x3AKkST?si=1b5ac008bef54412'
+
+FEARLESS_SV_COMPARE_ID = '67WkS5Ihn7wadLmSxmL4py?si=6b6d80abdf724839'
+FEALRESS_TV_COMPARE_ID = '0gAW6DQ2inUM7pxv0VPu03?si=9e81a701f1ad4a35'
