@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import '../node_modules/uikit/css/uikit.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-  <NavBar></NavBar>
+  <NavBar>
+    
+  </NavBar>
     </>
     /*}
     <BrowserRouter>
