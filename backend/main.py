@@ -179,7 +179,7 @@ def read_album_all_statistics_into_json():
   with open("album_all_statistics.json", "w") as outfile:
    outfile.write(json_util.dumps(albums_to_json))
 
-# read_album_all_statistics_into_json()
+read_album_all_statistics_into_json()
 
 # COMPARISON ALBUMS 
 
@@ -201,7 +201,7 @@ def read_comparison_collection():
 
 def read_comparison_into_json():
   comparisons_to_json = read_comparison_collection()
-  with open("comparison.json", "w") as outfile:
+  with open("album_all_statistics.json", "w") as outfile:
    outfile.write(json_util.dumps(comparisons_to_json))
 
 
